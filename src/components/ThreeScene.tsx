@@ -1,4 +1,4 @@
-import { OrbitControls, Text3D, Center } from "@react-three/drei";
+import { OrbitControls, Text, Center } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
@@ -39,24 +39,16 @@ function FloatingText() {
   return (
     <group ref={textRef}>
       <Center>
-        <Text3D
-          font="https://unpkg.com/three@0.152.2/examples/fonts/helvetiker_regular.typeface.json"
-          size={0.5}
-          height={0.1}
-          curveSegments={12}
-          bevelEnabled
-          bevelThickness={0.02}
-          bevelSize={0.02}
-          bevelOffset={0}
-          bevelSegments={5}
+        <Text
+          fontSize={0.6}
+          color="#ff0080"
+          outlineWidth={0.02}
+          outlineColor="#ff0080"
+          anchorX="center"
+          anchorY="middle"
         >
           DEV
-          <meshStandardMaterial 
-            color="#ff0080" 
-            emissive="#ff0080"
-            emissiveIntensity={0.3}
-          />
-        </Text3D>
+        </Text>
       </Center>
     </group>
   );
