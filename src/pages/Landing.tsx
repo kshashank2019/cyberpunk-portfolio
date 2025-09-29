@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Download, Github, Linkedin, Mail, MapPin, ChevronDown } from "lucide-react";
-import { useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import ContactForm from "@/components/ContactForm";
 import CyberButton from "@/components/CyberButton";
 import Navigation from "@/components/Navigation";
@@ -9,12 +9,9 @@ import SkillBar from "@/components/SkillBar";
 import VariableProximity from "@/components/VariableProximity";
 
 export default function Landing() {
-  const [darkMode, setDarkMode] = useState(true);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    document.documentElement.classList.toggle("dark");
-  };
+  useEffect(() => {
+    document.documentElement.classList.add("dark");
+  }, []);
 
   const skills = [
     { name: "React.js", percentage: 90, color: "pink" as const },
@@ -53,9 +50,9 @@ export default function Landing() {
   ];
 
   return (
-    <div className={`min-h-screen ${darkMode ? "dark" : ""}`}>
+    <div className={`min-h-screen`}>
       <div className="cyber-grid noise">
-        <Navigation darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        <Navigation />
         
         {/* Hero Section */}
         <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">

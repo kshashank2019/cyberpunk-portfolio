@@ -1,13 +1,7 @@
 import { motion } from "framer-motion";
-import { Moon, Sun } from "lucide-react";
 import { useState } from "react";
 
-interface NavigationProps {
-  darkMode: boolean;
-  toggleDarkMode: () => void;
-}
-
-export default function Navigation({ darkMode, toggleDarkMode }: NavigationProps) {
+export default function Navigation() {
   const [activeSection, setActiveSection] = useState("home");
 
   const navItems = [
@@ -60,15 +54,6 @@ export default function Navigation({ darkMode, toggleDarkMode }: NavigationProps
               </motion.button>
             ))}
           </div>
-          
-          <motion.button
-            onClick={toggleDarkMode}
-            className="p-2 neon-border-green neon-green hover:bg-green-500/10 transition-all duration-300"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-          </motion.button>
         </div>
       </div>
     </motion.nav>
