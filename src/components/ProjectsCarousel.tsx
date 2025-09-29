@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import CyberButton from "@/components/CyberButton";
 
 type Item = {
@@ -310,8 +310,10 @@ export default function ProjectsCarousel({ items, initialIndex = 0 }: ProjectsCa
                         href={item.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
+                        className="gap-2 rounded-md shadow-[0_0_12px_rgba(56,189,248,0.25)] hover:shadow-[0_0_18px_rgba(56,189,248,0.45)]"
                       >
-                        Visit Site
+                        <ExternalLink className="w-4 h-4" />
+                        <span>Visit Site</span>
                       </CyberButton>
                     )}
                   </div>
