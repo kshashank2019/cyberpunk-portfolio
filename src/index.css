@@ -49,18 +49,18 @@
 :root {
   --radius: 0.125rem;
   --background: oklch(0.98 0.01 250);
-  --foreground: oklch(0.15 0.02 250);
+  --foreground: oklch(0.18 0.03 250);
   --card: oklch(0.99 0.005 250);
-  --card-foreground: oklch(0.15 0.02 250);
+  --card-foreground: oklch(0.18 0.03 250);
   --popover: oklch(0.99 0.005 250);
-  --popover-foreground: oklch(0.15 0.02 250);
-  --primary: oklch(0.54 0.07 250);        /* muted slate-blue */
+  --popover-foreground: oklch(0.18 0.03 250);
+  --primary: oklch(0.42 0.08 250);       /* deeper slate-blue */
   --primary-foreground: oklch(0.99 0.005 250);
-  --secondary: oklch(0.58 0.08 320);      /* muted violet */
+  --secondary: oklch(0.45 0.09 320);     /* deeper violet */
   --secondary-foreground: oklch(0.99 0.005 250);
   --muted: oklch(0.95 0.01 250);
-  --muted-foreground: oklch(0.32 0.03 260);
-  --accent: oklch(0.62 0.08 140);         /* muted green */
+  --muted-foreground: oklch(0.35 0.04 260);
+  --accent: oklch(0.46 0.11 150);        /* deeper green */
   --accent-foreground: oklch(0.18 0.02 250);
   --destructive: oklch(0.6 0.1 25);
   --border: oklch(0.9 0.02 250);
@@ -72,7 +72,7 @@
   --chart-4: oklch(0.6 0.08 60);
   --chart-5: oklch(0.58 0.06 280);
   --sidebar: oklch(0.98 0.01 250);
-  --sidebar-foreground: oklch(0.15 0.02 250);
+  --sidebar-foreground: oklch(0.18 0.03 250);
   --sidebar-primary: oklch(0.54 0.07 250);
   --sidebar-primary-foreground: oklch(0.99 0.005 250);
   --sidebar-accent: oklch(0.95 0.01 250);
@@ -180,6 +180,17 @@
   .neon-border-green {
     border: 1px solid color-mix(in oklch, var(--accent) 60%, transparent);
     box-shadow: none;
+  }
+  
+  /* Light mode specific text grading for utility classes */
+  :not(.dark) .neon-cyan {
+    color: color-mix(in oklch, var(--primary) 85%, black);
+  }
+  :not(.dark) .neon-pink {
+    color: color-mix(in oklch, var(--secondary) 85%, black);
+  }
+  :not(.dark) .neon-green {
+    color: color-mix(in oklch, var(--accent) 85%, black);
   }
   
   /* Glitch effect */
