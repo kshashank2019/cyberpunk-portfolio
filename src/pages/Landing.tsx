@@ -310,7 +310,7 @@ export default function Landing() {
                   <Briefcase className="w-5 h-5 text-[var(--primary)]" />
                   <h3 className="text-xl font-bold">Cognizant — Internship (Campus Placement)</h3>
                 </div>
-                <p className="text-sm text-gray-400 font-mono mb-3">Domain: Angular | Duration: 6 months (Training)</p>
+                <p className="text-sm text-gray-400 font-mono mb-3">Domain: Angular | Feb 2023 – Jul 2023 (Training)</p>
                 <p className="text-gray-300 font-mono leading-relaxed">
                   Started internship via campus placement in the Angular domain. Completed 6 months of structured training, then
                   cleared multiple interviews to secure a full-time offer.
@@ -328,7 +328,7 @@ export default function Landing() {
                   <Briefcase className="w-5 h-5 text-[var(--primary)]" />
                   <h3 className="text-xl font-bold">Cognizant — Software Engineer Trainee</h3>
                 </div>
-                <p className="text-sm text-gray-400 font-mono mb-3">Shifted Domain: React</p>
+                <p className="text-sm text-gray-400 font-mono mb-3">Shifted Domain: React | Sep 2023 – Now</p>
                 <p className="text-gray-300 font-mono leading-relaxed">
                   After joining full-time, transitioned from Angular to React to align with product needs and delivery cadence.
                 </p>
