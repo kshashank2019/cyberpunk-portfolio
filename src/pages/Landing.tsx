@@ -6,7 +6,6 @@ import CyberButton from "@/components/CyberButton";
 import Navigation from "@/components/Navigation";
 import ProjectCard from "@/components/ProjectCard";
 import SkillBar from "@/components/SkillBar";
-import ThreeScene from "@/components/ThreeScene";
 import VariableProximity from "@/components/VariableProximity";
 
 export default function Landing() {
@@ -62,7 +61,7 @@ export default function Landing() {
         <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
           <div className="scan-lines absolute inset-0" />
           
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-12 items-center">
             <motion.div
               className="text-center lg:text-left"
               initial={{ opacity: 0, x: -100 }}
@@ -121,15 +120,6 @@ export default function Landing() {
                   CONTACT ME
                 </CyberButton>
               </motion.div>
-            </motion.div>
-            
-            <motion.div
-              className="h-96 lg:h-[500px]"
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <ThreeScene />
             </motion.div>
           </div>
         </section>
@@ -255,42 +245,6 @@ export default function Landing() {
                 />
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* 3D Interactive Section */}
-        <section className="py-20 relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.h2
-              className="text-4xl md:text-5xl font-bold text-center mb-16 neon-green glitch"
-              data-text="INTERACTIVE.3D"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              INTERACTIVE.3D
-            </motion.h2>
-            
-            <motion.div
-              className="h-96 neon-border-cyan"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <ThreeScene showText={true} />
-            </motion.div>
-            
-            <motion.p
-              className="text-center text-gray-300 mt-8 font-mono"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              Drag to rotate • Scroll to zoom • Experience the future
-            </motion.p>
           </div>
         </section>
 
