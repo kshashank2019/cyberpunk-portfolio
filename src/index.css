@@ -283,3 +283,14 @@
     font-weight: 800;
   }
 }
+
+/* Make Spline viewer transparent and hide watermark */
+.spline-watermark,
+[class*="watermark"] {
+  display: none !important;
+}
+
+.spline-wrapper,
+.spline-wrapper canvas {
+  background: transparent !important;
+}

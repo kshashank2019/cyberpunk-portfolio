@@ -114,12 +114,12 @@ export default function Landing() {
 
             {/* 3D Spline Model */}
             <motion.div
-              className="relative h-[320px] sm:h-[380px] lg:h-[460px] neon-border-cyan bg-black/40 overflow-hidden rounded-none"
+              className="relative h-[320px] sm:h-[380px] lg:h-[460px] overflow-hidden"
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="absolute inset-0">
+              <div className="absolute inset-0 spline-wrapper" style={{ background: "transparent" }}>
                 <Spline scene="https://prod.spline.design/gRKAcNab5pso6f9S/scene.splinecode" />
               </div>
             </motion.div>
