@@ -294,3 +294,26 @@
 .spline-wrapper canvas {
   background: transparent !important;
 }
+
+/* Force transparency on any Spline-rendered nodes, even if inline styles are injected */
+.spline-wrapper,
+.spline-wrapper * {
+  background: transparent !important;
+}
+
+/* Handle inline-styled canvas backgrounds */
+.spline-wrapper canvas,
+.spline-wrapper canvas:where([style]),
+.spline-wrapper [style*="background"] {
+  background: transparent !important;
+}
+
+/* Aggressively hide watermark variants that Spline injects */
+.spline-watermark,
+[class*="watermark"],
+[aria-label*="Spline watermark"],
+a[href*="spline.design"],
+a[aria-label*="Spline"] {
+  display: none !important;
+  pointer-events: none !important;
+}
