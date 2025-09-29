@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 import { Download, Github, Linkedin, Mail, MapPin } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import ContactForm from "@/components/ContactForm";
 import CyberButton from "@/components/CyberButton";
 import Navigation from "@/components/Navigation";
 import ProjectCard from "@/components/ProjectCard";
 import SkillBar from "@/components/SkillBar";
 import ThreeScene from "@/components/ThreeScene";
+import VariableProximity from "@/components/VariableProximity";
 
 export default function Landing() {
   const [darkMode, setDarkMode] = useState(true);
@@ -184,15 +185,36 @@ export default function Landing() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <p className="text-lg text-gray-300 mb-8 font-mono leading-relaxed">
-                  I'm a Software Engineer at Cognizant with 2+ years of experience delivering scalable, enterprise-grade web applications and microservices.
-                  I've led React.js development for a real-time news platform, integrated robust REST APIs, and worked hands-on with CI/CD and containerization.
-                </p>
+                {(() => {
+                  const proximityRef = useRef<HTMLDivElement>(null);
+                  return (
+                    <div ref={proximityRef}>
+                      <p className="text-lg text-gray-300 mb-8 font-mono leading-relaxed">
+                        <VariableProximity
+                          label={"I'm a Software Engineer at Cognizant with 2+ years of experience delivering scalable, enterprise-grade web applications and microservices. I've led React.js development for a real-time news platform, integrated robust REST APIs, and worked hands-on with CI/CD and containerization."}
+                          className={"[font-variation-settings:'wght'_400,'opsz'_9]"}
+                          fromFontVariationSettings="'wght' 400, 'opsz' 9"
+                          toFontVariationSettings="'wght' 900, 'opsz' 36"
+                          containerRef={proximityRef}
+                          radius={140}
+                          falloff="linear"
+                        />
+                      </p>
 
-                <p className="text-lg text-gray-300 mb-8 font-mono leading-relaxed">
-                  Previously a Frontend Intern (Angular), I transitioned into React full-time. I value clean, maintainable code, secure systems design,
-                  and collaborative delivery across teams.
-                </p>
+                      <p className="text-lg text-gray-300 mb-8 font-mono leading-relaxed">
+                        <VariableProximity
+                          label={"Previously a Frontend Intern (Angular), I transitioned into React full-time. I value clean, maintainable code, secure systems design, and collaborative delivery across teams."}
+                          className={"[font-variation-settings:'wght'_400,'opsz'_9]"}
+                          fromFontVariationSettings="'wght' 400, 'opsz' 9"
+                          toFontVariationSettings="'wght' 900, 'opsz' 36"
+                          containerRef={proximityRef}
+                          radius={140}
+                          falloff="linear"
+                        />
+                      </p>
+                    </div>
+                  );
+                })()}
                 
                 <div className="space-y-4">
                   {skills.map((skill, index) => (
