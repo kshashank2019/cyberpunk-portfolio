@@ -197,17 +197,6 @@ export default function Landing() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <div className="relative">
-                  <div className="aspect-square neon-border-pink overflow-hidden mb-6">
-                    <img 
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
-                      alt="Shashank K"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="scan-lines absolute inset-0" />
-                </div>
-                
                 <div className="text-center">
                   <CyberButton 
                     variant="green" 
