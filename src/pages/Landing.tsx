@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Download, Github, Linkedin, Mail, MapPin, ChevronDown } from "lucide-react";
+import { Download, Github, Linkedin, Mail, MapPin, ChevronDown, Briefcase } from "lucide-react";
 import { useEffect, useRef } from "react";
 import ContactForm from "@/components/ContactForm";
 import CyberButton from "@/components/CyberButton";
@@ -279,6 +279,94 @@ export default function Landing() {
                     />
                   ))}
                 </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Experience Section */}
+        <section id="experience" className="py-20 relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold text-center mb-16 neon-cyan glitch"
+              data-text="EXPERIENCE.LOG"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              EXPERIENCE.LOG
+            </motion.h2>
+
+            <div className="grid gap-6">
+              <motion.div
+                className="neon-border-cyan bg-black/50 p-5 md:p-6 noise"
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <Briefcase className="w-5 h-5 text-[var(--primary)]" />
+                  <h3 className="text-xl font-bold">Cognizant — Internship (Campus Placement)</h3>
+                </div>
+                <p className="text-sm text-gray-400 font-mono mb-3">Domain: Angular | Duration: 6 months (Training)</p>
+                <p className="text-gray-300 font-mono leading-relaxed">
+                  Started internship via campus placement in the Angular domain. Completed 6 months of structured training, then
+                  cleared multiple interviews to secure a full-time offer.
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="neon-border-cyan bg-black/50 p-5 md:p-6 noise"
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <Briefcase className="w-5 h-5 text-[var(--primary)]" />
+                  <h3 className="text-xl font-bold">Cognizant — Software Engineer Trainee</h3>
+                </div>
+                <p className="text-sm text-gray-400 font-mono mb-3">Shifted Domain: React</p>
+                <p className="text-gray-300 font-mono leading-relaxed">
+                  After joining full-time, transitioned from Angular to React to align with product needs and delivery cadence.
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="neon-border-cyan bg-black/50 p-5 md:p-6 noise"
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <Briefcase className="w-5 h-5 text-[var(--primary)]" />
+                  <h3 className="text-xl font-bold">Promotion — Software Engineer</h3>
+                </div>
+                <p className="text-sm text-gray-400 font-mono mb-3">After 1 Year</p>
+                <p className="text-gray-300 font-mono leading-relaxed">
+                  Promoted from Software Engineer Trainee to Software Engineer based on delivery quality, ownership, and team impact.
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="neon-border-cyan bg-black/50 p-5 md:p-6 noise"
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <Briefcase className="w-5 h-5 text-[var(--primary)]" />
+                  <h3 className="text-xl font-bold">Project — Warner Bros (CNN US)</h3>
+                </div>
+                <p className="text-sm text-gray-400 font-mono mb-3">Stack: React.js, AWS</p>
+                <p className="text-gray-300 font-mono leading-relaxed">
+                  Joined the Warner Bros account for the CNN news channel (US domain). Focused on React.js with AWS, contributing to
+                  performant, maintainable frontend delivery with predictable CI/CD.
+                </p>
               </motion.div>
             </div>
           </div>
