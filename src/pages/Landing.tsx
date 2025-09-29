@@ -24,30 +24,6 @@ export default function Landing() {
 
   const projects = [
     {
-      title: "Realtime News Feed Platform",
-      description: "Built a modular React micro-frontend that aggregates multi-source news in realtime with role-based moderation and cached REST pipelines—reduced perceived latency by ~35%.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      githubUrl: "https://github.com",
-      demoUrl: "https://demo.com",
-      technologies: ["React", "TypeScript", "Micro-frontend", "CI/CD", "AWS"]
-    },
-    {
-      title: "Neural Network Visualizer",
-      description: "Interactive visual explorer for model layers and activations with step-by-step training playback. Focused on clarity and performance using canvas + progressive rendering.",
-      image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=400&fit=crop",
-      githubUrl: "https://github.com",
-      demoUrl: "https://demo.com",
-      technologies: ["Python", "TensorFlow", "WebGL", "D3.js"]
-    },
-    {
-      title: "Blockchain Explorer",
-      description: "Transaction explorer with address profiling, gas insights, and compact block timelines—prioritizes discoverability, search relevance, and readability on mobile.",
-      image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&h=400&fit=crop",
-      githubUrl: "https://github.com",
-      demoUrl: "https://demo.com",
-      technologies: ["Solidity", "Web3.js", "React", "Ethereum", "AWS"]
-    },
-    {
       title: "Jai Balaji Promoters (Freelance)",
       description: "Designed and delivered a fast, SEO-friendly real estate website with clean IA, responsive layouts, and optimized assets. Focused on discoverability, performance, and clear lead capture.",
       image: "https://images.unsplash.com/photo-1494526585095-c41746248156?w=600&h=400&fit=crop",
