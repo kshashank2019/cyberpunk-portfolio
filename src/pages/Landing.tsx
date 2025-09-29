@@ -1,43 +1,373 @@
-// TODO: REPLACE THIS LANDING PAGE WITH AN ELEGANT, THEMATIC, AND WELL-DESIGNED LANDING PAGE RELEVANT TO THE PROJECT
 import { motion } from "framer-motion";
-import { Loader } from "lucide-react";
+import { Download, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { useState } from "react";
+import ContactForm from "@/components/ContactForm";
+import CyberButton from "@/components/CyberButton";
+import Navigation from "@/components/Navigation";
+import ProjectCard from "@/components/ProjectCard";
+import SkillBar from "@/components/SkillBar";
+import ThreeScene from "@/components/ThreeScene";
 
 export default function Landing() {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen flex flex-col"
-    >
+  const [darkMode, setDarkMode] = useState(true);
 
-      
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col items-center justify-center">
-        <div className="max-w-5xl mx-auto relative px-4">
-        {/* TODO: landing page goes here; replace with the landing page */}
-        <div className="flex justify-center">
-          <img
-            src="./logo.svg"
-            alt="Lock Icon"
-            width={64}
-            height={64}
-            className="rounded-lg mb-8 mt-24"
-          />
-        </div>
-        <div className="flex items-center justify-center">
-          <Loader className="h-8 w-8 animate-spin mr-4" />
-          <a
-            href="https://vly.ai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary underline hover:text-primary/80 transition-colors"
-          >
-            vly.ai
-          </a>&nbsp; is generating your project...
-        </div>
-        </div>
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    document.documentElement.classList.toggle("dark");
+  };
+
+  const skills = [
+    { name: "JavaScript/TypeScript", percentage: 95, color: "cyan" as const },
+    { name: "React/Next.js", percentage: 90, color: "pink" as const },
+    { name: "Node.js/Express", percentage: 85, color: "green" as const },
+    { name: "Python/Django", percentage: 80, color: "cyan" as const },
+    { name: "Database Design", percentage: 88, color: "pink" as const },
+    { name: "Cloud/DevOps", percentage: 75, color: "green" as const }
+  ];
+
+  const projects = [
+    {
+      title: "Cyberpunk Dashboard",
+      description: "A futuristic admin dashboard with real-time data visualization and neon aesthetics.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+      githubUrl: "https://github.com",
+      demoUrl: "https://demo.com",
+      technologies: ["React", "TypeScript", "Three.js", "Tailwind"]
+    },
+    {
+      title: "Neural Network Visualizer",
+      description: "Interactive 3D visualization of neural networks with real-time training data.",
+      image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=400&fit=crop",
+      githubUrl: "https://github.com",
+      demoUrl: "https://demo.com",
+      technologies: ["Python", "TensorFlow", "WebGL", "D3.js"]
+    },
+    {
+      title: "Blockchain Explorer",
+      description: "Decentralized application for exploring blockchain transactions with cyberpunk UI.",
+      image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&h=400&fit=crop",
+      githubUrl: "https://github.com",
+      demoUrl: "https://demo.com",
+      technologies: ["Solidity", "Web3.js", "React", "Ethereum"]
+    }
+  ];
+
+  return (
+    <div className={`min-h-screen ${darkMode ? "dark" : ""}`}>
+      <div className="cyber-grid noise">
+        <Navigation darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        
+        {/* Hero Section */}
+        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+          <div className="scan-lines absolute inset-0" />
+          
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              className="text-center lg:text-left"
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <motion.h1
+                className="text-5xl md:text-7xl font-bold mb-6 chromatic glitch"
+                data-text="ALEX CHEN"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <span className="neon-cyan">ALEX</span>{" "}
+                <span className="neon-pink">CHEN</span>
+              </motion.h1>
+              
+              <motion.h2
+                className="text-2xl md:text-3xl font-mono mb-4 neon-green"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                &gt; FULL STACK DEVELOPER_
+              </motion.h2>
+              
+              <motion.p
+                className="text-lg text-gray-300 mb-8 font-mono leading-relaxed"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                Crafting digital experiences in the neon-lit future.
+                <br />
+                Specializing in cyberpunk aesthetics and cutting-edge tech.
+              </motion.p>
+              
+              <motion.div
+                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+              >
+                <CyberButton 
+                  variant="cyan" 
+                  size="lg"
+                  onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+                >
+                  VIEW PROJECTS
+                </CyberButton>
+                <CyberButton 
+                  variant="pink" 
+                  size="lg"
+                  onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                >
+                  CONTACT ME
+                </CyberButton>
+              </motion.div>
+            </motion.div>
+            
+            <motion.div
+              className="h-96 lg:h-[500px]"
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <ThreeScene />
+            </motion.div>
+          </div>
+        </section>
+
+        {/* About Section */}
+        <section id="about" className="py-20 relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold text-center mb-16 neon-cyan glitch"
+              data-text="ABOUT.EXE"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              ABOUT.EXE
+            </motion.h2>
+            
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <div className="relative">
+                  <div className="aspect-square neon-border-pink overflow-hidden mb-6">
+                    <img 
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                      alt="Alex Chen"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="scan-lines absolute inset-0" />
+                </div>
+                
+                <div className="text-center">
+                  <CyberButton 
+                    variant="green" 
+                    size="md"
+                    href="/resume.pdf"
+                    target="_blank"
+                  >
+                    <Download className="w-4 h-4 mr-2" />
+                    DOWNLOAD RESUME
+                  </CyberButton>
+                </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-lg text-gray-300 mb-8 font-mono leading-relaxed">
+                  Welcome to my digital realm. I'm a full-stack developer with a passion for 
+                  creating immersive, futuristic web experiences. With over 5 years of experience 
+                  in the field, I specialize in modern JavaScript frameworks, 3D web graphics, 
+                  and cyberpunk-inspired design.
+                </p>
+                
+                <p className="text-lg text-gray-300 mb-8 font-mono leading-relaxed">
+                  When I'm not coding, you'll find me exploring virtual worlds, experimenting 
+                  with AI technologies, or contributing to open-source projects that push the 
+                  boundaries of what's possible on the web.
+                </p>
+                
+                <div className="space-y-4">
+                  {skills.map((skill, index) => (
+                    <SkillBar
+                      key={skill.name}
+                      skill={skill.name}
+                      percentage={skill.percentage}
+                      delay={index * 200}
+                      color={skill.color}
+                    />
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <section id="projects" className="py-20 relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold text-center mb-16 neon-pink glitch"
+              data-text="PROJECTS.DIR"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              PROJECTS.DIR
+            </motion.h2>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projects.map((project, index) => (
+                <ProjectCard
+                  key={project.title}
+                  {...project}
+                  index={index}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 3D Interactive Section */}
+        <section className="py-20 relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold text-center mb-16 neon-green glitch"
+              data-text="INTERACTIVE.3D"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              INTERACTIVE.3D
+            </motion.h2>
+            
+            <motion.div
+              className="h-96 neon-border-cyan"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <ThreeScene showText={true} />
+            </motion.div>
+            
+            <motion.p
+              className="text-center text-gray-300 mt-8 font-mono"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              Drag to rotate • Scroll to zoom • Experience the future
+            </motion.p>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section id="contact" className="py-20 relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold text-center mb-16 neon-cyan glitch"
+              data-text="CONTACT.SYS"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              CONTACT.SYS
+            </motion.h2>
+            
+            <div className="grid lg:grid-cols-2 gap-12">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-2xl font-bold mb-8 neon-pink">
+                  Let's Connect in Cyberspace
+                </h3>
+                
+                <p className="text-gray-300 mb-8 font-mono leading-relaxed">
+                  Ready to build something amazing together? Drop me a message 
+                  and let's discuss your next project in the digital frontier.
+                </p>
+                
+                <div className="space-y-4">
+                  <motion.a
+                    href="mailto:alex@example.com"
+                    className="flex items-center space-x-3 text-cyan-400 hover:neon-cyan transition-all duration-300"
+                    whileHover={{ x: 10 }}
+                  >
+                    <Mail className="w-5 h-5" />
+                    <span className="font-mono">alex@example.com</span>
+                  </motion.a>
+                  
+                  <motion.a
+                    href="https://github.com"
+                    target="_blank"
+                    className="flex items-center space-x-3 text-pink-400 hover:neon-pink transition-all duration-300"
+                    whileHover={{ x: 10 }}
+                  >
+                    <Github className="w-5 h-5" />
+                    <span className="font-mono">github.com/alexchen</span>
+                  </motion.a>
+                  
+                  <motion.a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    className="flex items-center space-x-3 text-green-400 hover:neon-green transition-all duration-300"
+                    whileHover={{ x: 10 }}
+                  >
+                    <Linkedin className="w-5 h-5" />
+                    <span className="font-mono">linkedin.com/in/alexchen</span>
+                  </motion.a>
+                  
+                  <motion.div
+                    className="flex items-center space-x-3 text-gray-400"
+                    whileHover={{ x: 10 }}
+                  >
+                    <MapPin className="w-5 h-5" />
+                    <span className="font-mono">San Francisco, CA</span>
+                  </motion.div>
+                </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <ContactForm />
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="py-8 border-t neon-border-cyan">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <p className="text-gray-400 font-mono text-sm">
+                © 2024 Alex Chen. Coded in the cyberpunk future.
+              </p>
+            </div>
+          </div>
+        </footer>
       </div>
-    </motion.div>
+    </div>
   );
 }
