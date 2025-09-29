@@ -3,8 +3,8 @@
 @import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));
 
-/* Import cyberpunk fonts */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;500;700&display=swap');
+/* Import clean modern fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@300;400;500;700&display=swap');
 
 /* DO NOT CHANGE */
 @theme inline {
@@ -54,72 +54,72 @@
   --card-foreground: oklch(0.25 0.03 260);
   --popover: oklch(0.99 0.005 250);
   --popover-foreground: oklch(0.25 0.03 260);
-  --primary: oklch(0.55 0.15 250);
+  --primary: oklch(0.54 0.07 250);        /* muted slate-blue */
   --primary-foreground: oklch(0.99 0.005 250);
-  --secondary: oklch(0.63 0.18 320);
+  --secondary: oklch(0.58 0.08 320);      /* muted violet */
   --secondary-foreground: oklch(0.99 0.005 250);
   --muted: oklch(0.95 0.01 250);
   --muted-foreground: oklch(0.45 0.04 260);
-  --accent: oklch(0.7 0.18 140);
+  --accent: oklch(0.62 0.08 140);         /* muted green */
   --accent-foreground: oklch(0.18 0.02 250);
-  --destructive: oklch(0.6 0.2 25);
+  --destructive: oklch(0.6 0.1 25);
   --border: oklch(0.9 0.02 250);
   --input: oklch(0.96 0.01 250);
-  --ring: oklch(0.58 0.16 250);
-  --chart-1: oklch(0.58 0.16 250);
-  --chart-2: oklch(0.63 0.18 320);
-  --chart-3: oklch(0.62 0.18 140);
-  --chart-4: oklch(0.62 0.18 60);
-  --chart-5: oklch(0.58 0.16 280);
+  --ring: oklch(0.58 0.06 250);
+  --chart-1: oklch(0.58 0.06 250);
+  --chart-2: oklch(0.58 0.08 320);
+  --chart-3: oklch(0.6 0.08 140);
+  --chart-4: oklch(0.6 0.08 60);
+  --chart-5: oklch(0.58 0.06 280);
   --sidebar: oklch(0.98 0.01 250);
   --sidebar-foreground: oklch(0.25 0.03 260);
-  --sidebar-primary: oklch(0.58 0.16 250);
+  --sidebar-primary: oklch(0.54 0.07 250);
   --sidebar-primary-foreground: oklch(0.99 0.005 250);
   --sidebar-accent: oklch(0.95 0.01 250);
   --sidebar-accent-foreground: oklch(0.25 0.03 260);
   --sidebar-border: oklch(0.9 0.02 250);
-  --sidebar-ring: oklch(0.58 0.16 250);
-  
-  /* Cyberpunk specific colors */
-  --neon-cyan: #00ffff;
-  --neon-pink: #ff0080;
-  --neon-green: #00ff00;
+  --sidebar-ring: oklch(0.58 0.06 250);
+
+  /* Remove neon colors (redefine to neutral and unused) */
+  --neon-cyan: oklch(0.54 0.07 250);
+  --neon-pink: oklch(0.58 0.08 320);
+  --neon-green: oklch(0.62 0.08 140);
   --dark-bg: #000000;
   --darker-bg: #0a0a0a;
 }
 
 .dark {
-  --background: oklch(0.05 0 0);
-  --foreground: oklch(0.95 0.1 180);
-  --card: oklch(0.08 0 0);
-  --card-foreground: oklch(0.95 0.1 180);
-  --popover: oklch(0.08 0 0);
-  --popover-foreground: oklch(0.95 0.1 180);
-  --primary: oklch(0.7 0.3 180);
-  --primary-foreground: oklch(0.05 0 0);
-  --secondary: oklch(0.7 0.3 320);
-  --secondary-foreground: oklch(0.05 0 0);
-  --muted: oklch(0.15 0 0);
-  --muted-foreground: oklch(0.6 0.1 180);
-  --accent: oklch(0.7 0.3 120);
-  --accent-foreground: oklch(0.05 0 0);
-  --destructive: oklch(0.6 0.3 0);
-  --border: oklch(0.2 0.1 180);
-  --input: oklch(0.1 0 0);
-  --ring: oklch(0.7 0.3 180);
-  --chart-1: oklch(0.7 0.3 180);
-  --chart-2: oklch(0.7 0.3 320);
-  --chart-3: oklch(0.7 0.3 120);
-  --chart-4: oklch(0.7 0.3 60);
-  --chart-5: oklch(0.7 0.3 240);
-  --sidebar: oklch(0.08 0 0);
-  --sidebar-foreground: oklch(0.95 0.1 180);
-  --sidebar-primary: oklch(0.7 0.3 180);
-  --sidebar-primary-foreground: oklch(0.05 0 0);
-  --sidebar-accent: oklch(0.15 0 0);
-  --sidebar-accent-foreground: oklch(0.95 0.1 180);
-  --sidebar-border: oklch(0.2 0.1 180);
-  --sidebar-ring: oklch(0.7 0.3 180);
+  --background: oklch(0.1 0 0);
+  --foreground: oklch(0.92 0.03 250);
+  --card: oklch(0.12 0 0);
+  --card-foreground: oklch(0.92 0.03 250);
+  --popover: oklch(0.12 0 0);
+  --popover-foreground: oklch(0.92 0.03 250);
+  --primary: oklch(0.72 0.06 250);
+  --primary-foreground: oklch(0.08 0 0);
+  --secondary: oklch(0.72 0.07 320);
+  --secondary-foreground: oklch(0.08 0 0);
+  --muted: oklch(0.18 0 0);
+  --muted-foreground: oklch(0.7 0.03 250);
+  --accent: oklch(0.72 0.07 140);
+  --accent-foreground: oklch(0.08 0 0);
+  --destructive: oklch(0.6 0.05 25);
+  --border: oklch(0.22 0.02 250);
+  --input: oklch(0.16 0 0);
+  --ring: oklch(0.72 0.05 250);
+  --chart-1: oklch(0.72 0.06 250);
+  --chart-2: oklch(0.72 0.07 320);
+  --chart-3: oklch(0.72 0.07 140);
+  --chart-4: oklch(0.72 0.07 60);
+  --chart-5: oklch(0.72 0.06 240);
+  --sidebar: oklch(0.12 0 0);
+  --sidebar-foreground: oklch(0.92 0.03 250);
+  --sidebar-primary: oklch(0.72 0.06 250);
+  --sidebar-primary-foreground: oklch(0.08 0 0);
+  --sidebar-accent: oklch(0.18 0 0);
+  --sidebar-accent-foreground: oklch(0.92 0.03 250);
+  --sidebar-border: oklch(0.22 0.02 250);
+  --sidebar-ring: oklch(0.72 0.05 250);
 }
 
 @layer base {
@@ -128,14 +128,13 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Fira Code', monospace;
-    /* LIGHT gradient by default */
-    background: linear-gradient(45deg, #f8fafc 0%, #e2e8f0 100%);
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    /* Softer neutral gradients */
+    background: linear-gradient(45deg, oklch(0.99 0 0) 0%, oklch(0.95 0 0) 100%);
     background-attachment: fixed;
   }
-  /* Add DARK gradient specifically for dark mode */
   .dark body {
-    background: linear-gradient(45deg, #000000 0%, #0a0a0a 100%);
+    background: linear-gradient(45deg, oklch(0.12 0 0) 0%, oklch(0.08 0 0) 100%);
     background-attachment: fixed;
   }
   button:not([disabled]),
@@ -145,41 +144,42 @@
   
   /* Cyberpunk grid background */
   .cyber-grid {
-    background-image: 
-      linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+    /* soften grid lines */
+    background-image:
+      linear-gradient(color-mix(in oklch, var(--primary) 10%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklch, var(--primary) 10%, transparent) 1px, transparent 1px);
     background-size: 50px 50px;
   }
   
-  /* Neon glow effects */
+  /* Neutralize "neon" helper classes (keep names to avoid changing components) */
   .neon-cyan {
-    color: var(--neon-cyan);
-    text-shadow: 0 0 5px var(--neon-cyan), 0 0 10px var(--neon-cyan), 0 0 15px var(--neon-cyan);
+    color: var(--primary);
+    text-shadow: none;
   }
   
   .neon-pink {
-    color: var(--neon-pink);
-    text-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink), 0 0 15px var(--neon-pink);
+    color: var(--secondary);
+    text-shadow: none;
   }
   
   .neon-green {
-    color: var(--neon-green);
-    text-shadow: 0 0 5px var(--neon-green), 0 0 10px var(--neon-green), 0 0 15px var(--neon-green);
+    color: var(--accent);
+    text-shadow: none;
   }
   
   .neon-border-cyan {
-    border: 1px solid var(--neon-cyan);
-    box-shadow: 0 0 10px var(--neon-cyan), inset 0 0 10px rgba(0, 255, 255, 0.1);
+    border: 1px solid color-mix(in oklch, var(--primary) 60%, transparent);
+    box-shadow: none;
   }
   
   .neon-border-pink {
-    border: 1px solid var(--neon-pink);
-    box-shadow: 0 0 10px var(--neon-pink), inset 0 0 10px rgba(255, 0, 128, 0.1);
+    border: 1px solid color-mix(in oklch, var(--secondary) 60%, transparent);
+    box-shadow: none;
   }
   
   .neon-border-green {
-    border: 1px solid var(--neon-green);
-    box-shadow: 0 0 10px var(--neon-green), inset 0 0 10px rgba(0, 255, 0, 0.1);
+    border: 1px solid color-mix(in oklch, var(--accent) 60%, transparent);
+    box-shadow: none;
   }
   
   /* Glitch effect */
@@ -189,23 +189,17 @@
   
   .glitch:hover::before,
   .glitch:hover::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    /* use subtle color mix instead of neon glow */
+    color: color-mix(in oklch, var(--primary) 60%, var(--foreground));
   }
   
   .glitch:hover::before {
     animation: glitch-1 0.3s infinite;
-    color: var(--neon-cyan);
     z-index: -1;
   }
   
   .glitch:hover::after {
     animation: glitch-2 0.3s infinite;
-    color: var(--neon-pink);
     z-index: -2;
   }
   
@@ -237,7 +231,7 @@
     bottom: 0;
     background: linear-gradient(
       transparent 50%, 
-      rgba(0, 255, 255, 0.03) 50%
+      color-mix(in oklch, var(--foreground) 6%, transparent) 50%
     );
     background-size: 100% 4px;
     pointer-events: none;
@@ -252,8 +246,8 @@
   /* Chromatic aberration */
   .chromatic {
     text-shadow: 
-      -1px 0 var(--neon-cyan),
-      1px 0 var(--neon-pink);
+      -1px 0 color-mix(in oklch, var(--primary) 40%, transparent),
+      1px 0 color-mix(in oklch, var(--secondary) 40%, transparent);
   }
   
   /* Noise texture */
@@ -268,9 +262,9 @@
     pointer-events: none;
   }
   
-  /* Orbitron font for headings */
+  /* Heading font: use Inter for a refined look */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Orbitron', monospace;
-    font-weight: 700;
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-weight: 800;
   }
 }
