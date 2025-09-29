@@ -323,70 +323,73 @@ export default function Landing() {
             >
               CONTACT.SYS
             </motion.h2>
-            
-            <div className="grid lg:grid-cols-2 gap-12">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="text-2xl font-bold mb-8 neon-pink">
-                  Let's Connect in Cyberspace
-                </h3>
-                
-                <p className="text-gray-300 mb-8 font-mono leading-relaxed">
-                  Ready to build something impactful? Reach out and let's discuss opportunities.
-                </p>
 
-                <div className="space-y-4">
-                  <motion.a
-                    href="mailto:kshashank2019@gmail.com"
-                    className="flex items-center space-x-3 text-cyan-400 hover:neon-cyan transition-all duration-300"
-                    whileHover={{ x: 10 }}
-                  >
-                    <Mail className="w-5 h-5" />
-                    <span className="font-mono">kshashank2019@gmail.com</span>
-                  </motion.a>
-                  
-                  <motion.a
-                    href="https://github.com"
-                    target="_blank"
-                    className="flex items-center space-x-3 text-pink-400 hover:neon-pink transition-all duration-300"
-                    whileHover={{ x: 10 }}
-                  >
-                    <Github className="w-5 h-5" />
-                    <span className="font-mono">github.com</span>
-                  </motion.a>
-                  
-                  <motion.a
-                    href="https://linkedin.com"
-                    target="_blank"
-                    className="flex items-center space-x-3 text-green-400 hover:neon-green transition-all duration-300"
-                    whileHover={{ x: 10 }}
-                  >
-                    <Linkedin className="w-5 h-5" />
-                    <span className="font-mono">linkedin.com</span>
-                  </motion.a>
-                  
-                  <motion.div
-                    className="flex items-center space-x-3 text-gray-400"
-                    whileHover={{ x: 10 }}
-                  >
-                    <MapPin className="w-5 h-5" />
-                    <span className="font-mono">India</span>
-                  </motion.div>
-                </div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <ContactForm />
-              </motion.div>
+            {/* Added EnigmaGrid-like floating window style wrapper */}
+            <div className="relative mx-auto w-full max-w-5xl rounded-[20px] border border-[#ff0077] bg-[#040404] shadow-[inset_1px_1px_1px_rgba(255,255,255,0.025)] p-5 md:p-6">
+              <div className="grid lg:grid-cols-2 gap-12 items-start">
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  <h3 className="text-2xl font-bold mb-8 neon-pink">
+                    Let's Connect in Cyberspace
+                  </h3>
+
+                  <p className="text-gray-300 mb-8 font-mono leading-relaxed">
+                    Ready to build something impactful? Reach out and let's discuss opportunities.
+                  </p>
+
+                  <div className="space-y-4">
+                    <motion.a
+                      href="mailto:kshashank2019@gmail.com"
+                      className="flex items-center space-x-3 text-cyan-400 hover:neon-cyan transition-all duration-300"
+                      whileHover={{ x: 10 }}
+                    >
+                      <Mail className="w-5 h-5" />
+                      <span className="font-mono">kshashank2019@gmail.com</span>
+                    </motion.a>
+
+                    <motion.a
+                      href="https://github.com"
+                      target="_blank"
+                      className="flex items-center space-x-3 text-pink-400 hover:neon-pink transition-all duration-300"
+                      whileHover={{ x: 10 }}
+                    >
+                      <Github className="w-5 h-5" />
+                      <span className="font-mono">github.com</span>
+                    </motion.a>
+
+                    <motion.a
+                      href="https://linkedin.com"
+                      target="_blank"
+                      className="flex items-center space-x-3 text-green-400 hover:neon-green transition-all duration-300"
+                      whileHover={{ x: 10 }}
+                    >
+                      <Linkedin className="w-5 h-5" />
+                      <span className="font-mono">linkedin.com</span>
+                    </motion.a>
+
+                    <motion.div
+                      className="flex items-center space-x-3 text-gray-400"
+                      whileHover={{ x: 10 }}
+                    >
+                      <MapPin className="w-5 h-5" />
+                      <span className="font-mono">India</span>
+                    </motion.div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true }}
+                >
+                  <ContactForm />
+                </motion.div>
+              </div>
             </div>
           </div>
         </section>
