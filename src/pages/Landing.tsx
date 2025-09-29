@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Download, Github, Linkedin, Mail, MapPin, ChevronDown, Briefcase } from "lucide-react";
 import { useEffect, useRef } from "react";
 import ContactForm from "@/components/ContactForm";
@@ -104,6 +104,79 @@ export default function Landing() {
       technologies: ["React", "TypeScript", "Tailwind", "Shadcn UI", "Framer Motion", "AWS"]
     }
   ];
+
+  // Add: Scroll-stacking card component and data just before the Experience section render
+  const experienceItems = [
+    {
+      title: "Cognizant — Internship (Campus Placement)",
+      subtitle: "Domain: Angular | Feb 2023 – Jul 2023 (Training)",
+      description:
+        "Started internship via campus placement in the Angular domain. Completed 6 months of structured training, then cleared multiple interviews to secure a full-time offer.",
+    },
+    {
+      title: "Cognizant — Software Engineer Trainee",
+      subtitle: "Shifted Domain: React | Sep 2023 – Now",
+      description:
+        "After joining full-time, transitioned from Angular to React to align with product needs and delivery cadence.",
+    },
+    {
+      title: "Promotion — Software Engineer",
+      subtitle: "After 1 Year",
+      description:
+        "Promoted from Software Engineer Trainee to Software Engineer based on delivery quality, ownership, and team impact.",
+    },
+    {
+      title: "Project — Warner Bros (CNN US)",
+      subtitle: "Stack: React.js, AWS",
+      description:
+        "Joined the Warner Bros account for the CNN news channel (US domain). Focused on React.js with AWS, contributing to performant, maintainable frontend delivery with predictable CI/CD.",
+    },
+  ];
+
+  function ExperienceCard({
+    item,
+    index,
+  }: {
+    item: { title: string; subtitle: string; description: string };
+    index: number;
+  }) {
+    const ref = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+      target: ref,
+      offset: ["start 90%", "end 10%"], // animate while entering and exiting viewport
+    });
+
+    // Subtle lift and scale to simulate stacking as user scrolls
+    const y = useTransform(scrollYProgress, [0, 1], [24, -12]);
+    const scale = useTransform(scrollYProgress, [0, 1], [0.98, 1.0]);
+    const borderMix = useTransform(scrollYProgress, [0, 1], [45, 70]); // for a slightly brighter border
+
+    return (
+      <motion.div
+        ref={ref}
+        style={{
+          y,
+          scale,
+          zIndex: 10 + (experienceItems.length - index),
+          borderColor: `color-mix(in oklch, var(--primary) ${borderMix.get()}%, transparent)`,
+        }}
+        className="relative neon-border-cyan bg-black/50 p-5 md:p-6 noise will-change-transform"
+        initial={{ opacity: 0, y: 40, scale: 0.98 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: false, amount: 0.4 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+      >
+        <div className="flex items-center gap-3 mb-2">
+          <Briefcase className="w-5 h-5 text-[var(--primary)]" />
+          <h3 className="text-xl font-bold">{item.title}</h3>
+        </div>
+        <p className="text-sm text-gray-400 font-mono mb-3">{item.subtitle}</p>
+        <p className="text-gray-300 font-mono leading-relaxed">
+          {item.description}
+        </p>
+      </motion.div>
+    );
+  }
 
   return (
     <div className={`min-h-screen`}>
@@ -349,76 +422,11 @@ export default function Landing() {
               EXPERIENCE.LOG
             </motion.h2>
 
-            <div className="grid gap-6">
-              <motion.div
-                className="neon-border-cyan bg-black/50 p-5 md:p-6 noise"
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-center gap-3 mb-2">
-                  <Briefcase className="w-5 h-5 text-[var(--primary)]" />
-                  <h3 className="text-xl font-bold">Cognizant — Internship (Campus Placement)</h3>
-                </div>
-                <p className="text-sm text-gray-400 font-mono mb-3">Domain: Angular | Feb 2023 – Jul 2023 (Training)</p>
-                <p className="text-gray-300 font-mono leading-relaxed">
-                  Started internship via campus placement in the Angular domain. Completed 6 months of structured training, then
-                  cleared multiple interviews to secure a full-time offer.
-                </p>
-              </motion.div>
-
-              <motion.div
-                className="neon-border-cyan bg-black/50 p-5 md:p-6 noise"
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-center gap-3 mb-2">
-                  <Briefcase className="w-5 h-5 text-[var(--primary)]" />
-                  <h3 className="text-xl font-bold">Cognizant — Software Engineer Trainee</h3>
-                </div>
-                <p className="text-sm text-gray-400 font-mono mb-3">Shifted Domain: React | Sep 2023 – Now</p>
-                <p className="text-gray-300 font-mono leading-relaxed">
-                  After joining full-time, transitioned from Angular to React to align with product needs and delivery cadence.
-                </p>
-              </motion.div>
-
-              <motion.div
-                className="neon-border-cyan bg-black/50 p-5 md:p-6 noise"
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-center gap-3 mb-2">
-                  <Briefcase className="w-5 h-5 text-[var(--primary)]" />
-                  <h3 className="text-xl font-bold">Promotion — Software Engineer</h3>
-                </div>
-                <p className="text-sm text-gray-400 font-mono mb-3">After 1 Year</p>
-                <p className="text-gray-300 font-mono leading-relaxed">
-                  Promoted from Software Engineer Trainee to Software Engineer based on delivery quality, ownership, and team impact.
-                </p>
-              </motion.div>
-
-              <motion.div
-                className="neon-border-cyan bg-black/50 p-5 md:p-6 noise"
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-center gap-3 mb-2">
-                  <Briefcase className="w-5 h-5 text-[var(--primary)]" />
-                  <h3 className="text-xl font-bold">Project — Warner Bros (CNN US)</h3>
-                </div>
-                <p className="text-sm text-gray-400 font-mono mb-3">Stack: React.js, AWS</p>
-                <p className="text-gray-300 font-mono leading-relaxed">
-                  Joined the Warner Bros account for the CNN news channel (US domain). Focused on React.js with AWS, contributing to
-                  performant, maintainable frontend delivery with predictable CI/CD.
-                </p>
-              </motion.div>
+            {/* Replace static cards with scroll-stacking list */}
+            <div className="relative grid gap-6">
+              {experienceItems.map((item, index) => (
+                <ExperienceCard key={item.title} item={item} index={index} />
+              ))}
             </div>
           </div>
         </section>
