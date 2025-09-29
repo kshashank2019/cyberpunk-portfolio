@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Download, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { Download, Github, Linkedin, Mail, MapPin, ChevronDown } from "lucide-react";
 import { useState, useRef } from "react";
 import ContactForm from "@/components/ContactForm";
 import CyberButton from "@/components/CyberButton";
@@ -122,6 +122,20 @@ export default function Landing() {
               </motion.div>
             </motion.div>
           </div>
+
+          {/* Add scroll down indicator */}
+          <motion.button
+            aria-label="Scroll to About"
+            onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-center p-3 rounded-full neon-border-cyan text-muted-foreground hover:text-foreground transition-colors"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 0.9, y: [0, 6, 0] }}
+            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <ChevronDown className="w-6 h-6" />
+          </motion.button>
         </section>
 
         {/* About Section */}
