@@ -309,6 +309,7 @@ export default function ProjectsCarousel({ items, initialIndex = 0 }: ProjectsCa
                         size="sm"
                         href={item.demoUrl}
                         target="_blank"
+                        rel="noopener noreferrer"
                       >
                         Visit Site
                       </CyberButton>

@@ -9,6 +9,7 @@ interface CyberButtonProps {
   className?: string;
   href?: string;
   target?: string;
+  rel?: string;
 }
 
 export default function CyberButton({
@@ -19,6 +20,7 @@ export default function CyberButton({
   className = "",
   href,
   target,
+  rel,
 }: CyberButtonProps) {
   const baseClasses = "relative overflow-hidden inline-flex items-center justify-center font-mono font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer";
   
@@ -35,7 +37,7 @@ export default function CyberButton({
   };
 
   const Component = href ? motion.a : motion.button;
-  const props = href ? { href, target } : { onClick };
+  const props = href ? { href, target, rel } : { onClick };
 
   return (
     <Component
