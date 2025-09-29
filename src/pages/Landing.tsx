@@ -256,22 +256,45 @@ export default function Landing() {
     );
   }
 
+  // Add: scroll-triggered parallax for hero text and model
+  const heroSectionRef = useRef<HTMLElement>(null);
+  const heroTextRef = useRef<HTMLDivElement>(null);
+  const heroModelRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: heroProgress } = useScroll({
+    target: heroSectionRef,
+    offset: ["start end", "end start"],
+  });
+  const textY = useTransform(heroProgress, [0, 1], [0, -60]);
+  const modelY = useTransform(heroProgress, [0, 1], [0, 60]);
+  const textOpacity = useTransform(heroProgress, [0, 0.2, 1], [1, 0.9, 0.7]);
+  const modelOpacity = useTransform(heroProgress, [0, 0.2, 1], [1, 0.9, 0.7]);
+
   return (
     <div className={`min-h-screen`}>
       <div className="cyber-grid noise">
         <Navigation />
         
         {/* Hero Section */}
-        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <section
+          id="home"
+          ref={heroSectionRef}
+          className="min-h-screen flex items-center justify-center relative overflow-hidden"
+        >
           <div className="scan-lines absolute inset-0" />
           
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-12 items-center lg:grid-cols-2">
             {/* Text column */}
             <motion.div
+              ref={heroTextRef}
               className="text-center lg:text-left"
               initial={{ opacity: 0, x: -100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
+              style={{
+                y: textY,
+                opacity: textOpacity,
+                willChange: "transform, opacity",
+              }}
             >
               <motion.h1
                 className="text-5xl md:text-7xl font-bold mb-6 chromatic glitch"
@@ -329,10 +352,16 @@ export default function Landing() {
 
             {/* 3D Spline Model */}
             <motion.div
+              ref={heroModelRef}
               className="relative h-[320px] sm:h-[380px] lg:h-[460px] overflow-hidden"
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
+              style={{
+                y: modelY,
+                opacity: modelOpacity,
+                willChange: "transform, opacity",
+              }}
             >
               <div className="absolute inset-0 spline-wrapper" style={{ background: "transparent" }}>
                 <Spline scene="https://prod.spline.design/gRKAcNab5pso6f9S/scene.splinecode" />
