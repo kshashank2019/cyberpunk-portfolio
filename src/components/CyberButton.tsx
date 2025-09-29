@@ -20,7 +20,7 @@ export default function CyberButton({
   href,
   target,
 }: CyberButtonProps) {
-  const baseClasses = "relative overflow-hidden font-mono font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer";
+  const baseClasses = "relative overflow-hidden inline-flex items-center justify-center font-mono font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer";
   
   const sizeClasses = {
     sm: "px-4 py-2 text-sm",
