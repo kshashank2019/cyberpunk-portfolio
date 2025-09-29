@@ -24,16 +24,16 @@ export default function Landing() {
 
   const projects = [
     {
-      title: "Cyberpunk Dashboard",
-      description: "A futuristic admin dashboard with real-time data visualization and neon aesthetics.",
+      title: "Realtime News Feed Platform",
+      description: "Built a modular React micro-frontend that aggregates multi-source news in realtime with role-based moderation and cached REST pipelines—reduced perceived latency by ~35%.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
       githubUrl: "https://github.com",
       demoUrl: "https://demo.com",
-      technologies: ["React", "TypeScript", "Three.js", "Tailwind"]
+      technologies: ["React", "TypeScript", "Micro-frontend", "CI/CD"]
     },
     {
       title: "Neural Network Visualizer",
-      description: "Interactive 3D visualization of neural networks with real-time training data.",
+      description: "Interactive visual explorer for model layers and activations with step-by-step training playback. Focused on clarity and performance using canvas + progressive rendering.",
       image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=400&fit=crop",
       githubUrl: "https://github.com",
       demoUrl: "https://demo.com",
@@ -41,7 +41,7 @@ export default function Landing() {
     },
     {
       title: "Blockchain Explorer",
-      description: "Decentralized application for exploring blockchain transactions with cyberpunk UI.",
+      description: "Transaction explorer with address profiling, gas insights, and compact block timelines—prioritizes discoverability, search relevance, and readability on mobile.",
       image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&h=400&fit=crop",
       githubUrl: "https://github.com",
       demoUrl: "https://demo.com",
@@ -91,9 +91,9 @@ export default function Landing() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                Software Engineer at Cognizant with 2+ years building scalable enterprise web apps and microservices.
+                I design and ship frontends that feel fast, read clean, and scale well.
                 <br />
-                React-focused, with strong REST integrations, CI/CD, and cloud-aware architecture experience.
+                Strong in React + TypeScript, integrations over REST, and delivery via CI/CD.
               </motion.p>
               
               <motion.div
@@ -243,10 +243,10 @@ export default function Landing() {
                     <div ref={proximityRef}>
                       <p className="text-lg text-gray-300 mb-8 font-mono leading-relaxed">
                         <VariableProximity
-                          label={"I'm a Software Engineer at Cognizant with 2+ years of experience delivering scalable, enterprise-grade web applications and microservices. I've led React.js development for a real-time news platform, integrated robust REST APIs, and worked hands-on with CI/CD and containerization."}
+                          label={"I build product-focused frontends that optimize for clarity, speed, and maintainability. My work often involves shaping component systems, hardening API edges, and streamlining delivery pipelines."}
                           className={"[font-variation-settings:'wght'_400,'opsz'_9]"}
                           fromFontVariationSettings="'wght' 400, 'opsz' 9"
-                          toFontVariationSettings="'wght' 900, 'opsz' 36"
+                          toFontVariationSettings="'wght' 900, 'opsz' 36'"
                           containerRef={proximityRef}
                           radius={140}
                           falloff="linear"
@@ -255,10 +255,10 @@ export default function Landing() {
 
                       <p className="text-lg text-gray-300 mb-8 font-mono leading-relaxed">
                         <VariableProximity
-                          label={"Previously a Frontend Intern (Angular), I transitioned into React full-time. I value clean, maintainable code, secure systems design, and collaborative delivery across teams."}
+                          label={"Recent focus: React micro-frontends, TypeScript-first codebases, and resilient REST integrations—paired with CI/CD and basic infra to keep releases predictable."}
                           className={"[font-variation-settings:'wght'_400,'opsz'_9]"}
                           fromFontVariationSettings="'wght' 400, 'opsz' 9"
-                          toFontVariationSettings="'wght' 900, 'opsz' 36"
+                          toFontVariationSettings="'wght' 900, 'opsz' 36'"
                           containerRef={proximityRef}
                           radius={140}
                           falloff="linear"
@@ -334,11 +334,12 @@ export default function Landing() {
                   viewport={{ once: true }}
                 >
                   <h3 className="text-2xl font-bold mb-8 neon-pink">
-                    Let's Connect in Cyberspace
+                    Let's collaborate
                   </h3>
 
                   <p className="text-gray-300 mb-8 font-mono leading-relaxed">
-                    Ready to build something impactful? Reach out and let's discuss opportunities.
+                    Have a product idea or a feature that needs to be shipped with quality?
+                    I work end-to-end on frontend delivery—architecture, integration, and polish.
                   </p>
 
                   <div className="space-y-4">
