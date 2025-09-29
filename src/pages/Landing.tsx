@@ -126,15 +126,66 @@ export default function Landing() {
           {/* Add scroll down indicator */}
           <motion.button
             aria-label="Scroll to About"
-            onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-center p-3 rounded-full neon-border-cyan text-muted-foreground hover:text-foreground transition-colors"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 0.9, y: [0, 6, 0] }}
-            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+            onClick={() =>
+              document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })
+            }
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-center"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <ChevronDown className="w-6 h-6" />
+            {/* Pulsing halo */}
+            <motion.div
+              className="absolute w-16 h-16 rounded-full"
+              style={{ boxShadow: "0 0 0 2px color-mix(in oklch, var(--primary) 40%, transparent)" }}
+              initial={{ scale: 0.9, opacity: 0.4 }}
+              animate={{ scale: [0.9, 1.1, 0.9], opacity: [0.35, 0.15, 0.35] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            />
+            {/* Rotating dashed ring */}
+            <motion.div
+              className="relative w-14 h-14 rounded-full"
+              style={{
+                border: "1px dashed color-mix(in oklch, var(--primary) 55%, transparent)",
+              }}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+            />
+            {/* Chevrons container */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-1">
+              <motion.div
+                initial={{ y: -6, opacity: 0.2 }}
+                animate={{ y: [ -6, 4, 10 ], opacity: [0.2, 0.85, 0] }}
+                transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+                className="text-muted-foreground"
+              >
+                <ChevronDown className="w-5 h-5" />
+              </motion.div>
+              <motion.div
+                initial={{ y: -4, opacity: 0.15 }}
+                animate={{ y: [ -4, 6, 12 ], opacity: [0.15, 0.75, 0] }}
+                transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut", delay: 0.15 }}
+                className="text-muted-foreground"
+              >
+                <ChevronDown className="w-5 h-5" />
+              </motion.div>
+              <motion.div
+                initial={{ y: -2, opacity: 0.1 }}
+                animate={{ y: [ -2, 8, 14 ], opacity: [0.1, 0.65, 0] }}
+                transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+                className="text-muted-foreground"
+              >
+                <ChevronDown className="w-5 h-5" />
+              </motion.div>
+            </div>
+            {/* Optional hint (desktop only) */}
+            <motion.span
+              className="absolute -bottom-6 text-[10px] tracking-widest uppercase text-muted-foreground hidden md:block"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.4, 0.9, 0.4] }}
+              transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              Scroll
+            </motion.span>
           </motion.button>
         </section>
 
