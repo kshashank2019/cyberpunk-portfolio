@@ -188,12 +188,17 @@ export default function Landing() {
   }) {
     return (
       <motion.div
-        style={{ zIndex: index + 1 }}
-        className="sticky top-24 will-change-transform neon-border-cyan bg-black p-5 md:p-6 noise"
-        initial={{ opacity: 0, y: 60, scale: 0.98 }}
+        style={{ zIndex: index + 1, willChange: "transform, opacity" }}
+        className="sticky top-20 will-change-transform neon-border-cyan bg-black p-5 md:p-6 noise"
+        initial={{ opacity: 0, y: 50, scale: 0.985 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: false, amount: 0.6 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+        viewport={{ once: false, amount: 0.7 }}
+        transition={{
+          type: "spring",
+          stiffness: 140,
+          damping: 22,
+          mass: 0.6,
+        }}
       >
         <div className="flex items-center gap-3 mb-2">
           <Briefcase className="w-5 h-5 text-[var(--primary)]" />
@@ -220,6 +225,7 @@ export default function Landing() {
                   key={i}
                   className="text-[13px] text-gray-300 font-mono leading-relaxed flex gap-2"
                   variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
+                  transition={{ type: "spring", stiffness: 180, damping: 20 }}
                 >
                   <span
                     className="mt-[7px] h-1.5 w-1.5 rounded-full"
@@ -499,7 +505,7 @@ export default function Landing() {
               {experienceItems.map((item, index) => (
                 <div
                   key={item.title}
-                  className={`${index === 0 ? 'pt-0' : '-mt-48'} h-[85vh]`}
+                  className={`${index === 0 ? 'pt-0' : '-mt-40'} h-[90vh]`}
                 >
                   <ExperienceCard item={item} index={index} />
                 </div>
