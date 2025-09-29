@@ -140,17 +140,14 @@ export default function Landing() {
     item: { title: string; subtitle: string; description: string };
     index: number;
   }) {
-    // Sticky stacked panel: later cards have higher z-index so they slide up from behind
     return (
       <motion.div
         style={{ zIndex: index + 1 }}
-        className={`sticky top-24 will-change-transform neon-border-cyan bg-black/50 p-5 md:p-6 noise ${
-          index === 0 ? "" : "-mt-40"
-        }`}
+        className="sticky top-24 will-change-transform neon-border-cyan bg-black p-5 md:p-6 noise"
         initial={{ opacity: 0, y: 60, scale: 0.98 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: false, amount: 0.6 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
       >
         <div className="flex items-center gap-3 mb-2">
           <Briefcase className="w-5 h-5 text-[var(--primary)]" />
@@ -406,13 +403,18 @@ export default function Landing() {
               EXPERIENCE.LOG
             </motion.h2>
 
-            {/* Stacked sticky list: one visible, next slides from behind */}
-            <div className="relative flex flex-col">
+            {/* One-at-a-time stacked sticky cards */}
+            <div className="relative">
               {experienceItems.map((item, index) => (
-                <ExperienceCard key={item.title} item={item} index={index} />
+                <div
+                  key={item.title}
+                  className={`${index === 0 ? 'pt-0' : '-mt-48'} h-[85vh]`}
+                >
+                  <ExperienceCard item={item} index={index} />
+                </div>
               ))}
-              {/* Spacer to allow last sticky card to scroll off properly */}
-              <div className="h-[60vh]" />
+              {/* Spacer so last sticky card can scroll off */}
+              <div className="h-[40vh]" />
             </div>
           </div>
         </section>
