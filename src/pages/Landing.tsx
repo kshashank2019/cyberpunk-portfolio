@@ -17,12 +17,12 @@ export default function Landing() {
   };
 
   const skills = [
-    { name: "JavaScript/TypeScript", percentage: 95, color: "cyan" as const },
-    { name: "React/Next.js", percentage: 90, color: "pink" as const },
-    { name: "Node.js/Express", percentage: 85, color: "green" as const },
-    { name: "Python/Django", percentage: 80, color: "cyan" as const },
-    { name: "Database Design", percentage: 88, color: "pink" as const },
-    { name: "Cloud/DevOps", percentage: 75, color: "green" as const }
+    { name: "React.js", percentage: 90, color: "pink" as const },
+    { name: "Angular", percentage: 80, color: "cyan" as const },
+    { name: "TypeScript / JavaScript (ES6+)", percentage: 90, color: "cyan" as const },
+    { name: "REST API Integration", percentage: 88, color: "pink" as const },
+    { name: "DevOps: AWS, Docker, CI/CD", percentage: 85, color: "green" as const },
+    { name: "Microservices & Cloud-aware Architectures", percentage: 80, color: "green" as const },
   ];
 
   const projects = [
@@ -70,13 +70,13 @@ export default function Landing() {
             >
               <motion.h1
                 className="text-5xl md:text-7xl font-bold mb-6 chromatic glitch"
-                data-text="ALEX CHEN"
+                data-text="SHASHANK K"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <span className="neon-cyan">ALEX</span>{" "}
-                <span className="neon-pink">CHEN</span>
+                <span className="neon-cyan">SHASHANK</span>{" "}
+                <span className="neon-pink">K</span>
               </motion.h1>
               
               <motion.h2
@@ -85,7 +85,7 @@ export default function Landing() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                &gt; FULL STACK DEVELOPER_
+                &gt; SOFTWARE ENGINEER_
               </motion.h2>
               
               <motion.p
@@ -94,9 +94,9 @@ export default function Landing() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                Crafting digital experiences in the neon-lit future.
+                Software Engineer at Cognizant with 2+ years building scalable enterprise web apps and microservices.
                 <br />
-                Specializing in cyberpunk aesthetics and cutting-edge tech.
+                React-focused, with strong REST integrations, CI/CD, and cloud-aware architecture experience.
               </motion.p>
               
               <motion.div
@@ -158,7 +158,7 @@ export default function Landing() {
                   <div className="aspect-square neon-border-pink overflow-hidden mb-6">
                     <img 
                       src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
-                      alt="Alex Chen"
+                      alt="Shashank K"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -185,16 +185,13 @@ export default function Landing() {
                 viewport={{ once: true }}
               >
                 <p className="text-lg text-gray-300 mb-8 font-mono leading-relaxed">
-                  Welcome to my digital realm. I'm a full-stack developer with a passion for 
-                  creating immersive, futuristic web experiences. With over 5 years of experience 
-                  in the field, I specialize in modern JavaScript frameworks, 3D web graphics, 
-                  and cyberpunk-inspired design.
+                  I'm a Software Engineer at Cognizant with 2+ years of experience delivering scalable, enterprise-grade web applications and microservices.
+                  I've led React.js development for a real-time news platform, integrated robust REST APIs, and worked hands-on with CI/CD and containerization.
                 </p>
-                
+
                 <p className="text-lg text-gray-300 mb-8 font-mono leading-relaxed">
-                  When I'm not coding, you'll find me exploring virtual worlds, experimenting 
-                  with AI technologies, or contributing to open-source projects that push the 
-                  boundaries of what's possible on the web.
+                  Previously a Frontend Intern (Angular), I transitioned into React full-time. I value clean, maintainable code, secure systems design,
+                  and collaborative delivery across teams.
                 </p>
                 
                 <div className="space-y-4">
@@ -301,18 +298,17 @@ export default function Landing() {
                 </h3>
                 
                 <p className="text-gray-300 mb-8 font-mono leading-relaxed">
-                  Ready to build something amazing together? Drop me a message 
-                  and let's discuss your next project in the digital frontier.
+                  Ready to build something impactful? Reach out and let's discuss opportunities.
                 </p>
-                
+
                 <div className="space-y-4">
                   <motion.a
-                    href="mailto:alex@example.com"
+                    href="mailto:kshashank2019@gmail.com"
                     className="flex items-center space-x-3 text-cyan-400 hover:neon-cyan transition-all duration-300"
                     whileHover={{ x: 10 }}
                   >
                     <Mail className="w-5 h-5" />
-                    <span className="font-mono">alex@example.com</span>
+                    <span className="font-mono">kshashank2019@gmail.com</span>
                   </motion.a>
                   
                   <motion.a
@@ -322,7 +318,7 @@ export default function Landing() {
                     whileHover={{ x: 10 }}
                   >
                     <Github className="w-5 h-5" />
-                    <span className="font-mono">github.com/alexchen</span>
+                    <span className="font-mono">github.com</span>
                   </motion.a>
                   
                   <motion.a
@@ -332,7 +328,7 @@ export default function Landing() {
                     whileHover={{ x: 10 }}
                   >
                     <Linkedin className="w-5 h-5" />
-                    <span className="font-mono">linkedin.com/in/alexchen</span>
+                    <span className="font-mono">linkedin.com</span>
                   </motion.a>
                   
                   <motion.div
@@ -340,7 +336,7 @@ export default function Landing() {
                     whileHover={{ x: 10 }}
                   >
                     <MapPin className="w-5 h-5" />
-                    <span className="font-mono">San Francisco, CA</span>
+                    <span className="font-mono">India</span>
                   </motion.div>
                 </div>
               </motion.div>
@@ -362,7 +358,7 @@ export default function Landing() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <p className="text-gray-400 font-mono text-sm">
-                © 2024 Alex Chen. Coded in the cyberpunk future.
+                © 2024 Shashank K. Coded in the cyberpunk future.
               </p>
             </div>
           </div>

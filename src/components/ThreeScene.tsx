@@ -47,7 +47,7 @@ function FloatingText() {
           anchorX="center"
           anchorY="middle"
         >
-          DEV
+          SK
         </Text>
       </Center>
     </group>
