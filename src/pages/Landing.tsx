@@ -46,6 +46,13 @@ export default function Landing() {
       githubUrl: "https://github.com",
       demoUrl: "https://demo.com",
       technologies: ["Solidity", "Web3.js", "React", "Ethereum", "AWS"]
+    },
+    {
+      title: "Jai Balaji Promoters (Freelance)",
+      description: "Designed and delivered a fast, SEO-friendly real estate website with clean IA, responsive layouts, and optimized assets. Focused on discoverability, performance, and clear lead capture.",
+      image: "https://images.unsplash.com/photo-1494526585095-c41746248156?w=600&h=400&fit=crop",
+      demoUrl: "https://www.jaibalajipromoters.com/",
+      technologies: ["React", "TypeScript", "Tailwind", "SEO", "Responsive"]
     }
   ];
 
