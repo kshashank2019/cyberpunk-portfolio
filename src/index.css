@@ -48,37 +48,37 @@
 /* CYBERPUNK THEME COLORS */
 :root {
   --radius: 0.125rem;
-  --background: oklch(0.05 0 0);
-  --foreground: oklch(0.95 0.1 180);
-  --card: oklch(0.08 0 0);
-  --card-foreground: oklch(0.95 0.1 180);
-  --popover: oklch(0.08 0 0);
-  --popover-foreground: oklch(0.95 0.1 180);
-  --primary: oklch(0.7 0.3 180);
-  --primary-foreground: oklch(0.05 0 0);
-  --secondary: oklch(0.7 0.3 320);
-  --secondary-foreground: oklch(0.05 0 0);
-  --muted: oklch(0.15 0 0);
-  --muted-foreground: oklch(0.6 0.1 180);
-  --accent: oklch(0.7 0.3 120);
-  --accent-foreground: oklch(0.05 0 0);
-  --destructive: oklch(0.6 0.3 0);
-  --border: oklch(0.2 0.1 180);
-  --input: oklch(0.1 0 0);
-  --ring: oklch(0.7 0.3 180);
-  --chart-1: oklch(0.7 0.3 180);
-  --chart-2: oklch(0.7 0.3 320);
-  --chart-3: oklch(0.7 0.3 120);
-  --chart-4: oklch(0.7 0.3 60);
-  --chart-5: oklch(0.7 0.3 240);
-  --sidebar: oklch(0.08 0 0);
-  --sidebar-foreground: oklch(0.95 0.1 180);
-  --sidebar-primary: oklch(0.7 0.3 180);
-  --sidebar-primary-foreground: oklch(0.05 0 0);
-  --sidebar-accent: oklch(0.15 0 0);
-  --sidebar-accent-foreground: oklch(0.95 0.1 180);
-  --sidebar-border: oklch(0.2 0.1 180);
-  --sidebar-ring: oklch(0.7 0.3 180);
+  --background: oklch(0.98 0.01 250);
+  --foreground: oklch(0.25 0.03 260);
+  --card: oklch(0.99 0.005 250);
+  --card-foreground: oklch(0.25 0.03 260);
+  --popover: oklch(0.99 0.005 250);
+  --popover-foreground: oklch(0.25 0.03 260);
+  --primary: oklch(0.55 0.15 250);
+  --primary-foreground: oklch(0.99 0.005 250);
+  --secondary: oklch(0.63 0.18 320);
+  --secondary-foreground: oklch(0.99 0.005 250);
+  --muted: oklch(0.95 0.01 250);
+  --muted-foreground: oklch(0.45 0.04 260);
+  --accent: oklch(0.7 0.18 140);
+  --accent-foreground: oklch(0.18 0.02 250);
+  --destructive: oklch(0.6 0.2 25);
+  --border: oklch(0.9 0.02 250);
+  --input: oklch(0.96 0.01 250);
+  --ring: oklch(0.58 0.16 250);
+  --chart-1: oklch(0.58 0.16 250);
+  --chart-2: oklch(0.63 0.18 320);
+  --chart-3: oklch(0.62 0.18 140);
+  --chart-4: oklch(0.62 0.18 60);
+  --chart-5: oklch(0.58 0.16 280);
+  --sidebar: oklch(0.98 0.01 250);
+  --sidebar-foreground: oklch(0.25 0.03 260);
+  --sidebar-primary: oklch(0.58 0.16 250);
+  --sidebar-primary-foreground: oklch(0.99 0.005 250);
+  --sidebar-accent: oklch(0.95 0.01 250);
+  --sidebar-accent-foreground: oklch(0.25 0.03 260);
+  --sidebar-border: oklch(0.9 0.02 250);
+  --sidebar-ring: oklch(0.58 0.16 250);
   
   /* Cyberpunk specific colors */
   --neon-cyan: #00ffff;
@@ -129,6 +129,12 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Fira Code', monospace;
+    /* LIGHT gradient by default */
+    background: linear-gradient(45deg, #f8fafc 0%, #e2e8f0 100%);
+    background-attachment: fixed;
+  }
+  /* Add DARK gradient specifically for dark mode */
+  .dark body {
     background: linear-gradient(45deg, #000000 0%, #0a0a0a 100%);
     background-attachment: fixed;
   }
