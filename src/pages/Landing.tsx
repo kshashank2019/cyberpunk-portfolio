@@ -140,40 +140,24 @@ export default function Landing() {
     item: { title: string; subtitle: string; description: string };
     index: number;
   }) {
-    const ref = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-      target: ref,
-      offset: ["start 90%", "end 10%"], // animate while entering and exiting viewport
-    });
-
-    // Subtle lift and scale to simulate stacking as user scrolls
-    const y = useTransform(scrollYProgress, [0, 1], [24, -12]);
-    const scale = useTransform(scrollYProgress, [0, 1], [0.98, 1.0]);
-    const borderMix = useTransform(scrollYProgress, [0, 1], [45, 70]); // for a slightly brighter border
-
+    // Sticky stacked panel: later cards have higher z-index so they slide up from behind
     return (
       <motion.div
-        ref={ref}
-        style={{
-          y,
-          scale,
-          zIndex: 10 + (experienceItems.length - index),
-          borderColor: `color-mix(in oklch, var(--primary) ${borderMix.get()}%, transparent)`,
-        }}
-        className="relative neon-border-cyan bg-black/50 p-5 md:p-6 noise will-change-transform"
-        initial={{ opacity: 0, y: 40, scale: 0.98 }}
+        style={{ zIndex: index + 1 }}
+        className={`sticky top-24 will-change-transform neon-border-cyan bg-black/50 p-5 md:p-6 noise ${
+          index === 0 ? "" : "-mt-40"
+        }`}
+        initial={{ opacity: 0, y: 60, scale: 0.98 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: false, amount: 0.4 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+        viewport={{ once: false, amount: 0.6 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <div className="flex items-center gap-3 mb-2">
           <Briefcase className="w-5 h-5 text-[var(--primary)]" />
           <h3 className="text-xl font-bold">{item.title}</h3>
         </div>
         <p className="text-sm text-gray-400 font-mono mb-3">{item.subtitle}</p>
-        <p className="text-gray-300 font-mono leading-relaxed">
-          {item.description}
-        </p>
+        <p className="text-gray-300 font-mono leading-relaxed">{item.description}</p>
       </motion.div>
     );
   }
@@ -422,11 +406,13 @@ export default function Landing() {
               EXPERIENCE.LOG
             </motion.h2>
 
-            {/* Replace static cards with scroll-stacking list */}
-            <div className="relative grid gap-6">
+            {/* Stacked sticky list: one visible, next slides from behind */}
+            <div className="relative flex flex-col">
               {experienceItems.map((item, index) => (
                 <ExperienceCard key={item.title} item={item} index={index} />
               ))}
+              {/* Spacer to allow last sticky card to scroll off properly */}
+              <div className="h-[60vh]" />
             </div>
           </div>
         </section>
