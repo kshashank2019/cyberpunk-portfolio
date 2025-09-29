@@ -29,7 +29,7 @@ export default function Landing() {
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
       githubUrl: "https://github.com",
       demoUrl: "https://demo.com",
-      technologies: ["React", "TypeScript", "Micro-frontend", "CI/CD"]
+      technologies: ["React", "TypeScript", "Micro-frontend", "CI/CD", "AWS"]
     },
     {
       title: "Neural Network Visualizer",
@@ -45,7 +45,7 @@ export default function Landing() {
       image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&h=400&fit=crop",
       githubUrl: "https://github.com",
       demoUrl: "https://demo.com",
-      technologies: ["Solidity", "Web3.js", "React", "Ethereum"]
+      technologies: ["Solidity", "Web3.js", "React", "Ethereum", "AWS"]
     }
   ];
 
@@ -93,7 +93,7 @@ export default function Landing() {
               >
                 I design and ship frontends that feel fast, read clean, and scale well.
                 <br />
-                Strong in React + TypeScript, integrations over REST, and delivery via CI/CD.
+                Strong in React + TypeScript, AWS, integrations over REST, and delivery via CI/CD.
               </motion.p>
               
               <motion.div
