@@ -15,9 +15,23 @@ export default function Landing() {
     document.documentElement.classList.add("dark");
   }, []);
 
-  // Add: aggressively hide Spline watermark and force transparent background at runtime
+  // Add: aggressively hide Spline watermark and force transparent background at runtime (hardened with MutationObserver + shadow DOM scan)
   useEffect(() => {
-    const hide = () => {
+    const hideEl = (el: Element) => {
+      const elh = el as HTMLElement;
+      elh.style.setProperty("display", "none", "important");
+      elh.style.setProperty("pointer-events", "none", "important");
+      elh.style.setProperty("opacity", "0", "important");
+      elh.setAttribute("aria-hidden", "true");
+    };
+
+    const makeTransparent = (el: Element) => {
+      const elh = el as HTMLElement;
+      elh.style.setProperty("background", "transparent", "important");
+      elh.style.setProperty("background-color", "transparent", "important");
+    };
+
+    const runOnce = (root: ParentNode) => {
       const selectors = [
         ".spline-watermark",
         '[class*="watermark"]',
@@ -25,26 +39,43 @@ export default function Landing() {
         'a[href*="spline.design"]',
       ];
       selectors.forEach((sel) => {
-        document.querySelectorAll(sel).forEach((el) => {
-          const elh = el as HTMLElement;
-          elh.style.setProperty("display", "none", "important");
-          elh.style.setProperty("pointer-events", "none", "important");
-          elh.style.setProperty("opacity", "0", "important");
-          elh.setAttribute("aria-hidden", "true");
-        });
+        root.querySelectorAll(sel).forEach(hideEl);
       });
-      // Ensure any Spline canvas is transparent
-      document.querySelectorAll(".spline-wrapper canvas, canvas").forEach((c) => {
-        (c as HTMLElement).style.setProperty("background", "transparent", "important");
+      root.querySelectorAll(".spline-wrapper canvas, canvas").forEach(makeTransparent);
+      root.querySelectorAll(".spline-wrapper, .spline-wrapper *").forEach(makeTransparent);
+    };
+
+    // Scan regular DOM
+    const hideAll = () => {
+      runOnce(document);
+
+      // Scan shadow roots as well
+      const allWithShadow = document.querySelectorAll<HTMLElement>("*");
+      allWithShadow.forEach((el) => {
+        const sr = (el as any).shadowRoot as ShadowRoot | undefined;
+        if (sr) runOnce(sr);
       });
     };
 
-    hide();
-    const id = window.setInterval(hide, 150);
-    const stopId = window.setTimeout(() => clearInterval(id), 4000);
+    hideAll();
+
+    // Keep enforcing for a while in case of delayed injection
+    const intervalId = window.setInterval(hideAll, 300);
+
+    // Observe DOM mutations to react instantly
+    const observer = new MutationObserver(hideAll);
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+
+    // Run longer to catch deferred loads; clear on unmount
+    const timeoutId = window.setTimeout(() => {
+      clearInterval(intervalId);
+      observer.disconnect();
+    }, 30000); // 30s
+
     return () => {
-      clearInterval(id);
-      clearTimeout(stopId);
+      clearInterval(intervalId);
+      clearTimeout(timeoutId);
+      observer.disconnect();
     };
   }, []);
 
