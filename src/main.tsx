@@ -12,9 +12,30 @@ import Landing from "./pages/Landing.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import "./types/global.d.ts";
 
-const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string);
-
-
+// Add: wrapper component to scope Convex to /auth route only
+function AuthRouteElement() {
+  const convexUrl = import.meta.env.VITE_CONVEX_URL as string | undefined;
+  if (!convexUrl) {
+    return (
+      <div className="min-h-screen flex items-center justify-center px-4">
+        <div className="text-center space-y-2">
+          <p className="text-sm text-muted-foreground">
+            Authentication is not available because VITE_CONVEX_URL is not set.
+          </p>
+          <p className="text-xs text-muted-foreground">
+            Set it in the Integrations/API Keys tab to enable /auth.
+          </p>
+        </div>
+      </div>
+    );
+  }
+  const convex = new ConvexReactClient(convexUrl);
+  return (
+    <ConvexAuthProvider client={convex}>
+      <AuthPage redirectAfterAuth="/" />
+    </ConvexAuthProvider>
+  );
+}
 
 function RouteSyncer() {
   const location = useLocation();
@@ -44,17 +65,15 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <VlyToolbar />
     <InstrumentationProvider>
-      <ConvexAuthProvider client={convex}>
-        <BrowserRouter>
-          <RouteSyncer />
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/auth" element={<AuthPage redirectAfterAuth="/" />} /> {/* TODO: change redirect after auth to correct page */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-        <Toaster />
-      </ConvexAuthProvider>
+      <BrowserRouter>
+        <RouteSyncer />
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/auth" element={<AuthRouteElement />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+      <Toaster />
     </InstrumentationProvider>
   </StrictMode>,
 );
