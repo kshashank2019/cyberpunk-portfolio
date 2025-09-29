@@ -9,6 +9,7 @@ import SkillBar from "@/components/SkillBar";
 import VariableProximity from "@/components/VariableProximity";
 import ThreeScene from "@/components/ThreeScene";
 import Spline from "@splinetool/react-spline";
+import ProjectsCarousel from "@/components/ProjectsCarousel";
 
 export default function Landing() {
   useEffect(() => {
@@ -104,6 +105,20 @@ export default function Landing() {
       technologies: ["React", "TypeScript", "Tailwind", "Shadcn UI", "Framer Motion", "AWS"]
     }
   ];
+
+  // Extend project data with phase/progress/tags required by the carousel (non-breaking defaults)
+  const mappedProjects = projects.map((p, i) => {
+    const defaultPhases: Array<string> = ["PHASE I", "PHASE II", "PHASE III", "PHASE II", "PHASE I"];
+    const defaultProgress: Array<number> = [65, 42, 89, 51, 78];
+    return {
+      title: p.title,
+      description: p.description,
+      image: p.image,
+      phase: defaultPhases[i % defaultPhases.length],
+      progress: defaultProgress[i % defaultProgress.length],
+      techTags: p.technologies,
+    };
+  });
 
   // Add: Scroll-stacking card component and data just before the Experience section render
   const experienceItems = [
@@ -507,16 +522,9 @@ export default function Landing() {
             >
               PROJECTS.DIR
             </motion.h2>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project, index) => (
-                <ProjectCard
-                  key={project.title}
-                  {...project}
-                  index={index}
-                />
-              ))}
-            </div>
+
+            {/* Replace grid with the new carousel */}
+            <ProjectsCarousel items={mappedProjects} />
           </div>
         </section>
 
