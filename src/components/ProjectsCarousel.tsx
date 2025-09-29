@@ -313,8 +313,7 @@ export default function ProjectsCarousel({ items, initialIndex = 0 }: ProjectsCa
                     />
                   </div>
 
-                  <div className="mt-2 flex items-center justify-between text-[11px] text-slate-200/70">
-                    <span>{item.phase}</span>
+                  <div className="mt-2 flex items-center justify-end text-[11px] text-slate-200/70">
                     <span>{item.progress}% COMPLETE</span>
                   </div>
                 </div>
