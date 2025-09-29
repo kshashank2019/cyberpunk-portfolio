@@ -157,13 +157,15 @@
     text-shadow: none;
   }
   
+  /* Make pink map to the same primary color */
   .neon-pink {
-    color: var(--secondary);
+    color: var(--primary);
     text-shadow: none;
   }
   
+  /* Make green map to the same primary color */
   .neon-green {
-    color: var(--accent);
+    color: var(--primary);
     text-shadow: none;
   }
   
@@ -172,13 +174,15 @@
     box-shadow: none;
   }
   
+  /* Make pink border identical to cyan (single theme) */
   .neon-border-pink {
-    border: 1px solid color-mix(in oklch, var(--secondary) 60%, transparent);
+    border: 1px solid color-mix(in oklch, var(--primary) 60%, transparent);
     box-shadow: none;
   }
   
+  /* Make green border identical to cyan (single theme) */
   .neon-border-green {
-    border: 1px solid color-mix(in oklch, var(--accent) 60%, transparent);
+    border: 1px solid color-mix(in oklch, var(--primary) 60%, transparent);
     box-shadow: none;
   }
   
@@ -187,10 +191,10 @@
     color: color-mix(in oklch, var(--primary) 85%, black);
   }
   :not(.dark) .neon-pink {
-    color: color-mix(in oklch, var(--secondary) 85%, black);
+    color: color-mix(in oklch, var(--primary) 85%, black);
   }
   :not(.dark) .neon-green {
-    color: color-mix(in oklch, var(--accent) 85%, black);
+    color: color-mix(in oklch, var(--primary) 85%, black);
   }
   
   /* Glitch effect */
@@ -258,7 +262,7 @@
   .chromatic {
     text-shadow: 
       -1px 0 color-mix(in oklch, var(--primary) 40%, transparent),
-      1px 0 color-mix(in oklch, var(--secondary) 40%, transparent);
+      1px 0 color-mix(in oklch, var(--primary) 40%, transparent);
   }
   
   /* Noise texture */

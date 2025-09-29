@@ -52,7 +52,8 @@ export default function ProjectCard({
           {technologies.map((tech, i) => (
             <span 
               key={i}
-              className="px-2 py-1 text-xs font-mono neon-border-green neon-green bg-green-500/10"
+              className="px-2 py-1 text-xs font-mono neon-border-cyan neon-cyan"
+              style={{ backgroundColor: "color-mix(in oklch, var(--primary) 10%, transparent)" }}
             >
               {tech}
             </span>
