@@ -15,6 +15,39 @@ export default function Landing() {
     document.documentElement.classList.add("dark");
   }, []);
 
+  // Add: aggressively hide Spline watermark and force transparent background at runtime
+  useEffect(() => {
+    const hide = () => {
+      const selectors = [
+        ".spline-watermark",
+        '[class*="watermark"]',
+        '[aria-label*="Spline"]',
+        'a[href*="spline.design"]',
+      ];
+      selectors.forEach((sel) => {
+        document.querySelectorAll(sel).forEach((el) => {
+          const elh = el as HTMLElement;
+          elh.style.setProperty("display", "none", "important");
+          elh.style.setProperty("pointer-events", "none", "important");
+          elh.style.setProperty("opacity", "0", "important");
+          elh.setAttribute("aria-hidden", "true");
+        });
+      });
+      // Ensure any Spline canvas is transparent
+      document.querySelectorAll(".spline-wrapper canvas, canvas").forEach((c) => {
+        (c as HTMLElement).style.setProperty("background", "transparent", "important");
+      });
+    };
+
+    hide();
+    const id = window.setInterval(hide, 150);
+    const stopId = window.setTimeout(() => clearInterval(id), 4000);
+    return () => {
+      clearInterval(id);
+      clearTimeout(stopId);
+    };
+  }, []);
+
   const skills = [
     { name: "React.js", percentage: 90, color: "pink" as const },
     { name: "Angular", percentage: 80, color: "cyan" as const },
