@@ -8,6 +8,7 @@ import ProjectCard from "@/components/ProjectCard";
 import SkillBar from "@/components/SkillBar";
 import VariableProximity from "@/components/VariableProximity";
 import ThreeScene from "@/components/ThreeScene";
+import Spline from "@splinetool/react-spline";
 
 export default function Landing() {
   useEffect(() => {
@@ -111,7 +112,7 @@ export default function Landing() {
               </motion.div>
             </motion.div>
 
-            {/* 3D Person with Laptop */}
+            {/* 3D Spline Model */}
             <motion.div
               className="relative h-[320px] sm:h-[380px] lg:h-[460px] neon-border-cyan bg-black/40 overflow-hidden rounded-none"
               initial={{ opacity: 0, x: 100 }}
@@ -119,7 +120,7 @@ export default function Landing() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <div className="absolute inset-0">
-                <ThreeScene mode="person" />
+                <Spline scene="https://prod.spline.design/gRKAcNab5pso6f9S/scene.splinecode" />
               </div>
             </motion.div>
           </div>
