@@ -190,26 +190,7 @@ export default function Landing() {
               ABOUT.EXE
             </motion.h2>
             
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <div className="text-center">
-                  <CyberButton 
-                    variant="green" 
-                    size="md"
-                    href="/resume.pdf"
-                    target="_blank"
-                  >
-                    <Download className="w-4 h-4 mr-2" />
-                    DOWNLOAD RESUME
-                  </CyberButton>
-                </div>
-              </motion.div>
-              
+            <div className="grid grid-cols-1 gap-12 items-start">
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -257,6 +238,18 @@ export default function Landing() {
                       color={skill.color}
                     />
                   ))}
+                </div>
+
+                <div className="mt-8 text-center lg:text-left">
+                  <CyberButton 
+                    variant="green" 
+                    size="md"
+                    href="/resume.pdf"
+                    target="_blank"
+                  >
+                    <Download className="w-4 h-4 mr-2" />
+                    DOWNLOAD RESUME
+                  </CyberButton>
                 </div>
               </motion.div>
             </div>
