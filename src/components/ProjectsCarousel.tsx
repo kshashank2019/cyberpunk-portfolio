@@ -310,7 +310,7 @@ export default function ProjectsCarousel({ items, initialIndex = 0 }: ProjectsCa
                         href={item.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group relative gap-2 rounded-md shadow-[0_0_12px_rgba(56,189,248,0.25)] hover:shadow-[0_0_18px_rgba(56,189,248,0.45)]"
+                        className="group relative gap-2 rounded-md transition-all duration-300 ease-out shadow-[0_0_12px_rgba(56,189,248,0.25)] hover:shadow-[0_0_20px_rgba(56,189,248,0.5)] hover:-translate-y-0.5 hover:brightness-110 ring-1 ring-sky-400/30 hover:ring-sky-400/60"
                       >
                         <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-[1px] group-hover:-rotate-12" />
                         <span className="transition-colors duration-300">Visit Site</span>
