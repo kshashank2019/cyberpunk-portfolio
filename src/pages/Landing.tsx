@@ -111,25 +111,49 @@ export default function Landing() {
       title: "Cognizant — Internship (Campus Placement)",
       subtitle: "Domain: Angular | Feb 2023 – Jul 2023 (Training)",
       description:
-        "Started internship via campus placement in the Angular domain. Completed 6 months of structured training, then cleared multiple interviews to secure a full-time offer.",
+        "Completed a rigorous 6-month training program covering modern frontend fundamentals, structured problem-solving, and delivery etiquette. Cleared multiple internal assessments to secure a full-time role.",
+      highlights: [
+        "Built 3 mini-projects: dashboard UI, form flows, and API-driven lists with pagination",
+        "Learned component composition, state management patterns, and semantic HTML",
+        "Shipped clean, testable code with attention to accessibility and performance",
+      ],
+      tools: ["Angular", "TypeScript", "RxJS", "CSS", "REST"],
     },
     {
       title: "Cognizant — Software Engineer Trainee",
       subtitle: "Shifted Domain: React | Sep 2023 – Now",
       description:
-        "After joining full-time, transitioned from Angular to React to align with product needs and delivery cadence.",
+        "Transitioned from Angular to React to align with product needs, focusing on scalable frontends, predictable CI/CD, and API integration that's easy to maintain.",
+      highlights: [
+        "Migrated legacy UI modules to React with improved structure and reusability",
+        "Established shared UI primitives and patterns to reduce code duplication",
+        "Collaborated with backend to harden contracts and reduce integration bugs",
+      ],
+      tools: ["React", "TypeScript", "Vite", "Tailwind", "REST", "Jest"],
     },
     {
       title: "Promotion — Software Engineer",
       subtitle: "After 1 Year",
       description:
-        "Promoted from Software Engineer Trainee to Software Engineer based on delivery quality, ownership, and team impact.",
+        "Promoted based on delivery quality, ownership, and consistent collaboration. Led UI slices end-to-end with strong code reviews and developer experience improvements.",
+      highlights: [
+        "Owned feature delivery from spec to release with tight feedback loops",
+        "Improved DX with lint rules, PR templates, and module conventions",
+        "Mentored peers on component patterns and performance best practices",
+      ],
+      tools: ["React", "TypeScript", "ESLint/Prettier", "CI/CD", "Storybook"],
     },
     {
       title: "Project — Warner Bros (CNN US)",
       subtitle: "Stack: React.js, AWS",
       description:
-        "Joined the Warner Bros account for the CNN news channel (US domain). Focused on React.js with AWS, contributing to performant, maintainable frontend delivery with predictable CI/CD.",
+        "Contributed to a high-traffic news experience for CNN US under the Warner Bros account, focusing on reliable UI performance and clean data flows.",
+      highlights: [
+        "Implemented performant article and feed views with predictable rendering",
+        "Optimized assets and interactions for fast, accessible reading experiences",
+        "Partnered with platform and QA teams to keep releases stable and on-time",
+      ],
+      tools: ["React", "TypeScript", "AWS", "CI/CD", "Accessibility", "Perf"],
     },
   ];
 
@@ -137,7 +161,13 @@ export default function Landing() {
     item,
     index,
   }: {
-    item: { title: string; subtitle: string; description: string };
+    item: {
+      title: string;
+      subtitle: string;
+      description: string;
+      highlights: string[];
+      tools: string[];
+    };
     index: number;
   }) {
     return (
@@ -154,7 +184,52 @@ export default function Landing() {
           <h3 className="text-xl font-bold">{item.title}</h3>
         </div>
         <p className="text-sm text-gray-400 font-mono mb-3">{item.subtitle}</p>
-        <p className="text-gray-300 font-mono leading-relaxed">{item.description}</p>
+
+        <p className="text-gray-300 font-mono leading-relaxed mb-4">
+          {item.description}
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-5">
+          <div>
+            <h4 className="text-sm font-bold tracking-wider neon-cyan mb-2">Key Contributions</h4>
+            <motion.ul
+              className="space-y-2"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.4 }}
+              variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.06 } } }}
+            >
+              {item.highlights.map((point, i) => (
+                <motion.li
+                  key={i}
+                  className="text-[13px] text-gray-300 font-mono leading-relaxed flex gap-2"
+                  variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
+                >
+                  <span
+                    className="mt-[7px] h-1.5 w-1.5 rounded-full"
+                    style={{ backgroundColor: "color-mix(in oklch, var(--primary) 70%, transparent)" }}
+                  />
+                  <span>{point}</span>
+                </motion.li>
+              ))}
+            </motion.ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-bold tracking-wider neon-cyan mb-2">Stack</h4>
+            <div className="flex flex-wrap gap-2">
+              {item.tools.map((tool) => (
+                <span
+                  key={tool}
+                  className="px-2 py-1 text-xs font-mono neon-border-cyan neon-cyan"
+                  style={{ backgroundColor: "color-mix(in oklch, var(--primary) 10%, transparent)" }}
+                >
+                  {tool}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
       </motion.div>
     );
   }
