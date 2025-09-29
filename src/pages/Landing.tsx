@@ -117,6 +117,7 @@ export default function Landing() {
       phase: defaultPhases[i % defaultPhases.length],
       progress: defaultProgress[i % defaultProgress.length],
       techTags: p.technologies,
+      demoUrl: p.demoUrl, // Add: pass through link
     };
   });
 

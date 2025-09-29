@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import CyberButton from "@/components/CyberButton";
 
 type Item = {
   title: string;
@@ -9,6 +10,7 @@ type Item = {
   phase: string; // e.g. "PHASE II"
   progress: number; // 0..100
   techTags: string[];
+  demoUrl?: string; // Add: website link
 };
 
 interface ProjectsCarouselProps {
@@ -179,8 +181,6 @@ export default function ProjectsCarousel({ items, initialIndex = 0 }: ProjectsCa
   const next = () => moveTo(currentIndex + 1);
   const prev = () => moveTo(currentIndex - 1);
 
-  const activeProgress = useMemo(() => items[currentIndex]?.progress ?? 0, [items, currentIndex]);
-
   return (
     <div className="relative w-full">
       {/* Inline CSS for special effects translated from your design */}
@@ -302,19 +302,17 @@ export default function ProjectsCarousel({ items, initialIndex = 0 }: ProjectsCa
                     {item.description}
                   </p>
 
-                  <div className="mt-5 h-[3px] rounded bg-[color:rgba(56,189,248,0.15)] relative overflow-hidden">
-                    <div
-                      className="absolute left-0 top-0 h-full rounded"
-                      style={{
-                        width: `${item.progress}%`,
-                        background:
-                          "linear-gradient(90deg, oklch(0.72 0.07 240) , oklch(0.72 0.07 150))",
-                      }}
-                    />
-                  </div>
-
-                  <div className="mt-2 flex items-center justify-end text-[11px] text-slate-200/70">
-                    <span>{item.progress}% COMPLETE</span>
+                  <div className="mt-5 flex justify-end">
+                    {item.demoUrl && (
+                      <CyberButton
+                        variant="cyan"
+                        size="sm"
+                        href={item.demoUrl}
+                        target="_blank"
+                      >
+                        Visit Site
+                      </CyberButton>
+                    )}
                   </div>
                 </div>
 
