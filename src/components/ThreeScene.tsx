@@ -60,73 +60,100 @@ function PersonWithLaptop() {
 
   useFrame((state) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y = state.clock.elapsedTime * 0.4;
+      // Slightly slower rotation for a clearer silhouette
+      groupRef.current.rotation.y = state.clock.elapsedTime * 0.3;
     }
   });
 
-  // Simple materials reused
+  // Reuse simple materials
   const skin = useMemo(() => new THREE.MeshStandardMaterial({ color: "#ffd6b4" }), []);
   const cloth = useMemo(() => new THREE.MeshStandardMaterial({ color: "#4e5bff", metalness: 0.1, roughness: 0.8 }), []);
   const dark = useMemo(() => new THREE.MeshStandardMaterial({ color: "#111318", metalness: 0.2, roughness: 0.7 }), []);
   const accent = useMemo(() => new THREE.MeshStandardMaterial({ color: "#7aa2ff", emissive: "#7aa2ff", emissiveIntensity: 0.15 }), []);
 
   return (
-    <group ref={groupRef} position={[0, -0.5, 0]}>
-      {/* Body */}
-      <mesh material={cloth} position={[0, 0.4, 0]}>
-        <cylinderGeometry args={[0.45, 0.5, 1.2, 16]} />
+    <group ref={groupRef} position={[0, -0.6, 0]}>
+      {/* Torso (taller, slimmer) */}
+      <mesh material={cloth} position={[0, 0.55, 0]}>
+        <cylinderGeometry args={[0.35, 0.4, 1.3, 18]} />
       </mesh>
 
-      {/* Head */}
-      <mesh material={skin} position={[0, 1.2, 0]}>
-        <sphereGeometry args={[0.28, 24, 24]} />
+      {/* Neck */}
+      <mesh material={skin} position={[0, 1.25, 0]}>
+        <cylinderGeometry args={[0.12, 0.12, 0.12, 12]} />
       </mesh>
 
-      {/* Left arm (bent) */}
-      <group position={[-0.55, 0.9, 0]}>
-        <mesh material={cloth} position={[0, -0.2, 0]}>
-          <cylinderGeometry args={[0.08, 0.08, 0.4, 12]} />
-        </mesh>
-        <group position={[0, -0.4, 0.1]} rotation={[Math.PI / 4, 0, 0]}>
-          <mesh material={skin} position={[0, -0.2, 0]}>
-            <cylinderGeometry args={[0.08, 0.08, 0.4, 12]} />
+      {/* Head (slightly smaller) */}
+      <mesh material={skin} position={[0, 1.45, 0]}>
+        <sphereGeometry args={[0.24, 24, 24]} />
+      </mesh>
+
+      {/* Shoulders bar */}
+      <mesh material={cloth} position={[0, 1.05, 0]}>
+        <boxGeometry args={[0.9, 0.12, 0.2]} />
+      </mesh>
+
+      {/* Left arm: upper + forearm bent forward to laptop */}
+      <group position={[-0.45, 1.0, 0]}>
+        {/* Upper arm */}
+        <group rotation={[0, 0, 0.15]}>
+          <mesh material={cloth} position={[0, -0.22, 0]}>
+            <cylinderGeometry args={[0.09, 0.09, 0.44, 12]} />
           </mesh>
         </group>
-      </group>
-
-      {/* Right arm (bent) */}
-      <group position={[0.55, 0.9, 0]}>
-        <mesh material={cloth} position={[0, -0.2, 0]}>
-          <cylinderGeometry args={[0.08, 0.08, 0.4, 12]} />
-        </mesh>
-        <group position={[0, -0.4, 0.1]} rotation={[Math.PI / 4, 0, 0]}>
-          <mesh material={skin} position={[0, -0.2, 0]}>
-            <cylinderGeometry args={[0.08, 0.08, 0.4, 12]} />
+        {/* Forearm (toward front and slightly up) */}
+        <group position={[0, -0.44, 0]} rotation={[0.9, 0.1, 0]}>
+          <mesh material={skin} position={[0, -0.22, 0]}>
+            <cylinderGeometry args={[0.085, 0.085, 0.44, 12]} />
           </mesh>
         </group>
-      </group>
-
-      {/* Legs */}
-      <group position={[-0.18, -0.2, 0]}>
-        <mesh material={dark} position={[0, -0.4, 0]}>
-          <cylinderGeometry args={[0.12, 0.12, 0.8, 12]} />
-        </mesh>
-      </group>
-      <group position={[0.18, -0.2, 0]}>
-        <mesh material={dark} position={[0, -0.4, 0]}>
-          <cylinderGeometry args={[0.12, 0.12, 0.8, 12]} />
+        {/* Hand */}
+        <mesh material={skin} position={[0.02, -0.7, 0.24]}>
+          <sphereGeometry args={[0.08, 16, 16]} />
         </mesh>
       </group>
 
-      {/* Laptop */}
-      <group position={[0, 0.8, 0.25]} rotation={[-0.2, 0, 0]}>
+      {/* Right arm: upper + forearm bent forward to laptop */}
+      <group position={[0.45, 1.0, 0]}>
+        {/* Upper arm */}
+        <group rotation={[0, 0, -0.15]}>
+          <mesh material={cloth} position={[0, -0.22, 0]}>
+            <cylinderGeometry args={[0.09, 0.09, 0.44, 12]} />
+          </mesh>
+        </group>
+        {/* Forearm (toward front and slightly up) */}
+        <group position={[0, -0.44, 0]} rotation={[0.9, -0.1, 0]}>
+          <mesh material={skin} position={[0, -0.22, 0]}>
+            <cylinderGeometry args={[0.085, 0.085, 0.44, 12]} />
+          </mesh>
+        </group>
+        {/* Hand */}
+        <mesh material={skin} position={[-0.02, -0.7, 0.24]}>
+          <sphereGeometry args={[0.08, 16, 16]} />
+        </mesh>
+      </group>
+
+      {/* Legs (slightly wider stance) */}
+      <group position={[-0.16, -0.1, 0]}>
+        <mesh material={dark} position={[0, -0.45, 0]}>
+          <cylinderGeometry args={[0.12, 0.12, 0.9, 12]} />
+        </mesh>
+      </group>
+      <group position={[0.16, -0.1, 0]}>
+        <mesh material={dark} position={[0, -0.45, 0]}>
+          <cylinderGeometry args={[0.12, 0.12, 0.9, 12]} />
+        </mesh>
+      </group>
+
+      {/* Laptop closer to chest with realistic angle */}
+      <group position={[0, 0.98, 0.26]} rotation={[-0.3, 0, 0]}>
         {/* Base */}
         <mesh material={dark}>
-          <boxGeometry args={[0.7, 0.04, 0.45]} />
+          <boxGeometry args={[0.62, 0.04, 0.42]} />
         </mesh>
         {/* Screen */}
-        <mesh position={[0, 0.28, -0.22]} rotation={[0.9, 0, 0]} material={accent}>
-          <boxGeometry args={[0.7, 0.5, 0.04]} />
+        <mesh position={[0, 0.28, -0.20]} rotation={[0.95, 0, 0]} material={accent}>
+          <boxGeometry args={[0.62, 0.48, 0.04]} />
         </mesh>
       </group>
     </group>
