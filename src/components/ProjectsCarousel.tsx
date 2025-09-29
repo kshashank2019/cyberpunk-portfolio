@@ -310,10 +310,12 @@ export default function ProjectsCarousel({ items, initialIndex = 0 }: ProjectsCa
                         href={item.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="gap-2 rounded-md shadow-[0_0_12px_rgba(56,189,248,0.25)] hover:shadow-[0_0_18px_rgba(56,189,248,0.45)]"
+                        className="group relative gap-2 rounded-md shadow-[0_0_12px_rgba(56,189,248,0.25)] hover:shadow-[0_0_18px_rgba(56,189,248,0.45)]"
                       >
-                        <ExternalLink className="w-4 h-4" />
-                        <span>Visit Site</span>
+                        <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-[1px] group-hover:-rotate-12" />
+                        <span className="transition-colors duration-300">Visit Site</span>
+                        {/* Hover shimmer underlay */}
+                        <span className="pointer-events-none absolute inset-x-3 bottom-1 h-px bg-gradient-to-r from-transparent via-sky-400/60 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                       </CyberButton>
                     )}
                   </div>
