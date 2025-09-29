@@ -40,7 +40,7 @@ function FloatingText() {
     <group ref={textRef}>
       <Center>
         <Text3D
-          font="/fonts/helvetiker_regular.typeface.json"
+          font="https://unpkg.com/three@0.152.2/examples/fonts/helvetiker_regular.typeface.json"
           size={0.5}
           height={0.1}
           curveSegments={12}
