@@ -29,6 +29,13 @@ export default function Landing() {
       image: "https://images.unsplash.com/photo-1494526585095-c41746248156?w=600&h=400&fit=crop",
       demoUrl: "https://www.jaibalajipromoters.com/",
       technologies: ["React", "TypeScript", "Tailwind", "SEO", "Responsive"]
+    },
+    {
+      title: "Cyberpunk Portfolio",
+      description: "A modern, dark-only portfolio showcasing projects, skills, and animations. Built with React 19, TypeScript, Tailwind v4, Shadcn UI, and Framer Motion—focused on performance, accessibility, and cohesive theming.",
+      image: "https://images.unsplash.com/photo-1522199710521-72d69614c702?w=600&h=400&fit=crop",
+      demoUrl: "/",
+      technologies: ["React", "TypeScript", "Tailwind", "Shadcn UI", "Framer Motion", "AWS"]
     }
   ];
 
