@@ -586,107 +586,151 @@ export default function Landing() {
               HIRE_ME.SYS
             </motion.h2>
 
-            <div className="relative mx-auto w-full max-w-5xl rounded-[20px] border border-[var(--primary)] bg-[#040404] shadow-[inset_1px_1px_1px_rgba(255,255,255,0.025)] p-5 md:p-6">
-              <div className="grid lg:grid-cols-2 gap-12 items-start">
-                <motion.div
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                >
-                  <h3 className="text-2xl font-bold mb-8 neon-pink">
-                    Let's collaborate
-                  </h3>
+            {/* Styled floating panel */}
+            <div
+              className="relative mx-auto w-full max-w-5xl rounded-2xl border neon-border-cyan bg-[#070707]/80 p-0 overflow-hidden"
+              style={{
+                boxShadow: "0 10px 40px rgba(0,0,0,0.45)",
+                backdropFilter: "blur(10px)",
+              }}
+            >
+              {/* Decorative header strip */}
+              <div className="relative h-10 border-b neon-border-cyan">
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, color-mix(in oklch, var(--primary) 10%, transparent), transparent)",
+                  }}
+                />
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-xs font-mono tracking-widest text-gray-400">
+                  ENIGMA://HIRE_WINDOW
+                </div>
+              </div>
 
-                  <p className="text-gray-300 mb-8 font-mono leading-relaxed">
-                    Have a product idea or a feature that needs to be shipped with quality?
-                    I work end-to-end on frontend delivery—architecture, integration, and polish.
-                  </p>
-
-                  <div className="space-y-4">
-                    <motion.a
-                      href="mailto:kshashank2019@gmail.com"
-                      className="flex items-center space-x-3 text-[var(--primary)] hover:opacity-90 transition-all duration-300"
-                      whileHover={{ x: 10 }}
-                    >
-                      <Mail className="w-5 h-5" />
-                      <span className="font-mono">kshashank2019@gmail.com</span>
-                    </motion.a>
-
-                    <motion.a
-                      href="tel:+917993460466"
-                      className="flex items-center space-x-3 text-[var(--primary)] hover:opacity-90 transition-all duration-300"
-                      whileHover={{ x: 10 }}
-                    >
-                      <Phone className="w-5 h-5" />
-                      <span className="font-mono">+91 7993460466</span>
-                    </motion.a>
-
-                    <motion.a
-                      href="https://github.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-3 text-[var(--primary)] hover:opacity-90 transition-all duration-300"
-                      whileHover={{ x: 10 }}
-                    >
-                      <Github className="w-5 h-5" />
-                      <span className="font-mono">github.com</span>
-                    </motion.a>
-
-                    <motion.a
-                      href="https://linkedin.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-3 text-[var(--primary)] hover:opacity-90 transition-all duration-300"
-                      whileHover={{ x: 10 }}
-                    >
-                      <Linkedin className="w-5 h-5" />
-                      <span className="font-mono">linkedin.com</span>
-                    </motion.a>
-
+              {/* Subtle grid background overlay */}
+              <div className="relative">
+                <div className="cyber-grid absolute inset-0 opacity-[0.08] pointer-events-none" />
+                <div className="relative p-6 md:p-8 lg:p-10">
+                  <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-start">
+                    {/* Left column: Let's collaborate & contacts */}
                     <motion.div
-                      className="flex items-center space-x-3 text-gray-400"
-                      whileHover={{ x: 10 }}
+                      initial={{ opacity: 0, x: -50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6 }}
+                      viewport={{ once: true }}
                     >
-                      <MapPin className="w-5 h-5" />
-                      <span className="font-mono">India</span>
+                      <h3 className="text-2xl md:text-3xl font-bold mb-6 neon-pink">
+                        Let's collaborate
+                      </h3>
+
+                      <p className="text-gray-300 mb-8 font-mono leading-relaxed">
+                        Have a product idea or a feature that needs to be shipped with quality?
+                        I work end-to-end on frontend delivery—architecture, integration, and polish.
+                      </p>
+
+                      <div className="space-y-4">
+                        <motion.a
+                          href="mailto:kshashank2019@gmail.com"
+                          className="group flex items-center justify-between gap-3 rounded-lg border neon-border-cyan px-3 py-2 transition-all duration-300 hover:bg-white/5"
+                          whileHover={{ x: 6 }}
+                        >
+                          <span className="flex items-center gap-3 text-[var(--primary)]">
+                            <Mail className="w-5 h-5" />
+                            <span className="font-mono">kshashank2019@gmail.com</span>
+                          </span>
+                          <ChevronDown className="w-4 h-4 -rotate-90 opacity-70 transition-transform duration-300 group-hover:translate-x-1" />
+                        </motion.a>
+
+                        <motion.a
+                          href="tel:+917993460466"
+                          className="group flex items-center justify-between gap-3 rounded-lg border neon-border-cyan px-3 py-2 transition-all duration-300 hover:bg-white/5"
+                          whileHover={{ x: 6 }}
+                        >
+                          <span className="flex items-center gap-3 text-[var(--primary)]">
+                            <Phone className="w-5 h-5" />
+                            <span className="font-mono">+91 7993460466</span>
+                          </span>
+                          <ChevronDown className="w-4 h-4 -rotate-90 opacity-70 transition-transform duration-300 group-hover:translate-x-1" />
+                        </motion.a>
+
+                        <div className="grid grid-cols-2 gap-3">
+                          <motion.a
+                            href="https://github.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center justify-between gap-3 rounded-lg border neon-border-cyan px-3 py-2 transition-all duration-300 hover:bg-white/5"
+                            whileHover={{ x: 6 }}
+                          >
+                            <span className="flex items-center gap-3 text-[var(--primary)]">
+                              <Github className="w-5 h-5" />
+                              <span className="font-mono">github.com</span>
+                            </span>
+                            <ChevronDown className="w-4 h-4 -rotate-90 opacity-70 transition-transform duration-300 group-hover:translate-x-1" />
+                          </motion.a>
+
+                          <motion.a
+                            href="https://linkedin.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center justify-between gap-3 rounded-lg border neon-border-cyan px-3 py-2 transition-all duration-300 hover:bg-white/5"
+                            whileHover={{ x: 6 }}
+                          >
+                            <span className="flex items-center gap-3 text-[var(--primary)]">
+                              <Linkedin className="w-5 h-5" />
+                              <span className="font-mono">linkedin.com</span>
+                            </span>
+                            <ChevronDown className="w-4 h-4 -rotate-90 opacity-70 transition-transform duration-300 group-hover:translate-x-1" />
+                          </motion.a>
+                        </div>
+
+                        <motion.div
+                          className="flex items-center gap-3 text-gray-400"
+                          whileHover={{ x: 6 }}
+                        >
+                          <MapPin className="w-5 h-5" />
+                          <span className="font-mono">India</span>
+                        </motion.div>
+                      </div>
+                    </motion.div>
+
+                    {/* Right column: Why/Availability/CTA */}
+                    <motion.div
+                      initial={{ opacity: 0, x: 50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.1 }}
+                      viewport={{ once: true }}
+                      className="space-y-5"
+                    >
+                      <div className="rounded-lg neon-border-cyan p-5 bg-black/30">
+                        <h4 className="text-lg font-bold mb-2 neon-cyan">Why Hire Me</h4>
+                        <ul className="list-disc list-inside text-gray-300 font-mono space-y-2">
+                          <li>React + TypeScript expert with performance-first mindset</li>
+                          <li>Clean, scalable UI architecture and reusable component systems</li>
+                          <li>Strong REST integrations and CI/CD delivery discipline</li>
+                        </ul>
+                      </div>
+
+                      <div className="rounded-lg neon-border-cyan p-5 bg-black/30">
+                        <h4 className="text-lg font-bold mb-2 neon-cyan">Availability</h4>
+                        <p className="text-gray-300 font-mono">
+                          Open to freelance and full-time opportunities. Let's discuss scope, timelines, and outcomes.
+                        </p>
+                      </div>
+
+                      <div className="pt-1">
+                        <CyberButton
+                          variant="cyan"
+                          size="md"
+                          href="mailto:kshashank2019@gmail.com"
+                          className="w-full md:w-auto"
+                        >
+                          CONTACT VIA EMAIL
+                        </CyberButton>
+                      </div>
                     </motion.div>
                   </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  viewport={{ once: true }}
-                  className="space-y-4"
-                >
-                  <div className="neon-border-cyan p-5">
-                    <h4 className="text-lg font-bold mb-2 neon-cyan">Why Hire Me</h4>
-                    <ul className="list-disc list-inside text-gray-300 font-mono space-y-2">
-                      <li>React + TypeScript expert with performance-first mindset</li>
-                      <li>Clean, scalable UI architecture and reusable component systems</li>
-                      <li>Strong REST integrations and CI/CD delivery discipline</li>
-                    </ul>
-                  </div>
-
-                  <div className="neon-border-cyan p-5">
-                    <h4 className="text-lg font-bold mb-2 neon-cyan">Availability</h4>
-                    <p className="text-gray-300 font-mono">
-                      Open to freelance and full-time opportunities. Let's discuss scope, timelines, and outcomes.
-                    </p>
-                  </div>
-
-                  <div className="pt-2">
-                    <CyberButton
-                      variant="cyan"
-                      size="md"
-                      href="mailto:kshashank2019@gmail.com"
-                    >
-                      CONTACT VIA EMAIL
-                    </CyberButton>
-                  </div>
-                </motion.div>
+                </div>
               </div>
             </div>
           </div>
