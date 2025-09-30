@@ -603,7 +603,7 @@ export default function Landing() {
                       "linear-gradient(90deg, color-mix(in oklch, var(--primary) 10%, transparent), transparent)",
                   }}
                 />
-                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-xs font-mono tracking-widest text-gray-400">
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[10px] sm:text-xs font-mono tracking-widest text-gray-400">
                   ENIGMA://HIRE_WINDOW
                 </div>
               </div>
@@ -611,85 +611,86 @@ export default function Landing() {
               {/* Subtle grid background overlay */}
               <div className="relative">
                 <div className="cyber-grid absolute inset-0 opacity-[0.08] pointer-events-none" />
-                <div className="relative p-6 md:p-8 lg:p-10">
-                  <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-start">
+                <div className="relative p-5 sm:p-6 md:p-8 lg:p-10">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start">
                     {/* Left column: Let's collaborate & contacts */}
                     <motion.div
                       initial={{ opacity: 0, x: -50 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6 }}
                       viewport={{ once: true }}
+                      className="w-full"
                     >
-                      <h3 className="text-2xl md:text-3xl font-bold mb-6 neon-pink">
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 neon-pink">
                         Let's collaborate
                       </h3>
 
-                      <p className="text-gray-300 mb-8 font-mono leading-relaxed">
+                      <p className="text-gray-300 mb-6 sm:mb-8 font-mono leading-relaxed text-sm sm:text-base">
                         Have a product idea or a feature that needs to be shipped with quality?
                         I work end-to-end on frontend delivery—architecture, integration, and polish.
                       </p>
 
-                      <div className="space-y-4">
+                      <div className="space-y-3 sm:space-y-4">
                         <motion.a
                           href="mailto:kshashank2019@gmail.com"
-                          className="group flex items-center justify-between gap-3 rounded-lg border neon-border-cyan px-3 py-2 transition-all duration-300 hover:bg-white/5"
+                          className="group flex items-center justify-between gap-2 sm:gap-3 rounded-lg border neon-border-cyan px-3 py-2 sm:px-4 sm:py-2.5 transition-all duration-300 hover:bg-white/5"
                           whileHover={{ x: 6 }}
                         >
-                          <span className="flex items-center gap-3 text-[var(--primary)]">
-                            <Mail className="w-5 h-5" />
-                            <span className="font-mono">kshashank2019@gmail.com</span>
+                          <span className="flex min-w-0 items-center gap-2 sm:gap-3 text-[var(--primary)]">
+                            <Mail className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                            <span className="font-mono truncate text-sm sm:text-base">kshashank2019@gmail.com</span>
                           </span>
-                          <ChevronDown className="w-4 h-4 -rotate-90 opacity-70 transition-transform duration-300 group-hover:translate-x-1" />
+                          <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4 -rotate-90 opacity-70 transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
                         </motion.a>
 
                         <motion.a
                           href="tel:+917993460466"
-                          className="group flex items-center justify-between gap-3 rounded-lg border neon-border-cyan px-3 py-2 transition-all duration-300 hover:bg-white/5"
+                          className="group flex items-center justify-between gap-2 sm:gap-3 rounded-lg border neon-border-cyan px-3 py-2 sm:px-4 sm:py-2.5 transition-all duration-300 hover:bg-white/5"
                           whileHover={{ x: 6 }}
                         >
-                          <span className="flex items-center gap-3 text-[var(--primary)]">
-                            <Phone className="w-5 h-5" />
-                            <span className="font-mono">+91 7993460466</span>
+                          <span className="flex min-w-0 items-center gap-2 sm:gap-3 text-[var(--primary)]">
+                            <Phone className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                            <span className="font-mono truncate text-sm sm:text-base">+91 7993460466</span>
                           </span>
-                          <ChevronDown className="w-4 h-4 -rotate-90 opacity-70 transition-transform duration-300 group-hover:translate-x-1" />
+                          <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4 -rotate-90 opacity-70 transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
                         </motion.a>
 
-                        <div className="grid grid-cols-2 gap-3">
+                        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-3">
                           <motion.a
                             href="https://github.com"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group flex items-center justify-between gap-3 rounded-lg border neon-border-cyan px-3 py-2 transition-all duration-300 hover:bg-white/5"
+                            className="group flex items-center justify-between gap-2 sm:gap-3 rounded-lg border neon-border-cyan px-3 py-2 sm:px-4 sm:py-2.5 transition-all duration-300 hover:bg-white/5"
                             whileHover={{ x: 6 }}
                           >
-                            <span className="flex items-center gap-3 text-[var(--primary)]">
-                              <Github className="w-5 h-5" />
-                              <span className="font-mono">github.com</span>
+                            <span className="flex min-w-0 items-center gap-2 sm:gap-3 text-[var(--primary)]">
+                              <Github className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                              <span className="font-mono truncate text-sm sm:text-base">github.com</span>
                             </span>
-                            <ChevronDown className="w-4 h-4 -rotate-90 opacity-70 transition-transform duration-300 group-hover:translate-x-1" />
+                            <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4 -rotate-90 opacity-70 transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
                           </motion.a>
 
                           <motion.a
                             href="https://linkedin.com"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group flex items-center justify-between gap-3 rounded-lg border neon-border-cyan px-3 py-2 transition-all duration-300 hover:bg-white/5"
+                            className="group flex items-center justify-between gap-2 sm:gap-3 rounded-lg border neon-border-cyan px-3 py-2 sm:px-4 sm:py-2.5 transition-all duration-300 hover:bg-white/5"
                             whileHover={{ x: 6 }}
                           >
-                            <span className="flex items-center gap-3 text-[var(--primary)]">
-                              <Linkedin className="w-5 h-5" />
-                              <span className="font-mono">linkedin.com</span>
+                            <span className="flex min-w-0 items-center gap-2 sm:gap-3 text-[var(--primary)]">
+                              <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                              <span className="font-mono truncate text-sm sm:text-base">linkedin.com</span>
                             </span>
-                            <ChevronDown className="w-4 h-4 -rotate-90 opacity-70 transition-transform duration-300 group-hover:translate-x-1" />
+                            <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4 -rotate-90 opacity-70 transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
                           </motion.a>
                         </div>
 
                         <motion.div
-                          className="flex items-center gap-3 text-gray-400"
+                          className="flex items-center gap-2 sm:gap-3 text-gray-400"
                           whileHover={{ x: 6 }}
                         >
-                          <MapPin className="w-5 h-5" />
-                          <span className="font-mono">India</span>
+                          <MapPin className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                          <span className="font-mono text-sm sm:text-base">India</span>
                         </motion.div>
                       </div>
                     </motion.div>
@@ -700,25 +701,25 @@ export default function Landing() {
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: 0.1 }}
                       viewport={{ once: true }}
-                      className="space-y-5"
+                      className="space-y-4 sm:space-y-5 w-full"
                     >
-                      <div className="rounded-lg neon-border-cyan p-5 bg-black/30">
-                        <h4 className="text-lg font-bold mb-2 neon-cyan">Why Hire Me</h4>
-                        <ul className="list-disc list-inside text-gray-300 font-mono space-y-2">
+                      <div className="rounded-lg neon-border-cyan p-4 sm:p-5 bg-black/30">
+                        <h4 className="text-base sm:text-lg font-bold mb-2 neon-cyan">Why Hire Me</h4>
+                        <ul className="list-disc list-inside text-gray-300 font-mono space-y-1.5 sm:space-y-2 text-sm sm:text-base">
                           <li>React + TypeScript expert with performance-first mindset</li>
                           <li>Clean, scalable UI architecture and reusable component systems</li>
                           <li>Strong REST integrations and CI/CD delivery discipline</li>
                         </ul>
                       </div>
 
-                      <div className="rounded-lg neon-border-cyan p-5 bg-black/30">
-                        <h4 className="text-lg font-bold mb-2 neon-cyan">Availability</h4>
-                        <p className="text-gray-300 font-mono">
+                      <div className="rounded-lg neon-border-cyan p-4 sm:p-5 bg-black/30">
+                        <h4 className="text-base sm:text-lg font-bold mb-2 neon-cyan">Availability</h4>
+                        <p className="text-gray-300 font-mono text-sm sm:text-base">
                           Open to freelance and full-time opportunities. Let's discuss scope, timelines, and outcomes.
                         </p>
                       </div>
 
-                      <div className="pt-1">
+                      <div className="pt-0.5">
                         <CyberButton
                           variant="cyan"
                           size="md"
