@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Download, Github, Linkedin, Mail, MapPin, ChevronDown, Briefcase } from "lucide-react";
+import { Download, Github, Linkedin, Mail, MapPin, ChevronDown, Briefcase, Phone } from "lucide-react";
 import { useEffect, useRef } from "react";
 import ContactForm from "@/components/ContactForm";
 import CyberButton from "@/components/CyberButton";
@@ -572,22 +572,21 @@ export default function Landing() {
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="py-20 relative">
+        {/* Hire Me Section (replaces Contact) */}
+        <section id="hire" className="py-20 relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.h2
               className="text-4xl md:text-5xl font-bold text-center mb-16 neon-cyan glitch"
-              data-text="CONTACT.SYS"
+              data-text="HIRE_ME.SYS"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              CONTACT.SYS
+              HIRE_ME.SYS
             </motion.h2>
 
-            {/* Added EnigmaGrid-like floating window style wrapper */}
-            <div className="relative mx-auto w-full max-w-5xl rounded-[20px] border border-[#ff0077] bg-[#040404] shadow-[inset_1px_1px_1px_rgba(255,255,255,0.025)] p-5 md:p-6">
+            <div className="relative mx-auto w-full max-w-5xl rounded-[20px] border border-[var(--primary)] bg-[#040404] shadow-[inset_1px_1px_1px_rgba(255,255,255,0.025)] p-5 md:p-6">
               <div className="grid lg:grid-cols-2 gap-12 items-start">
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
@@ -607,7 +606,7 @@ export default function Landing() {
                   <div className="space-y-4">
                     <motion.a
                       href="mailto:kshashank2019@gmail.com"
-                      className="flex items-center space-x-3 text-cyan-400 hover:neon-cyan transition-all duration-300"
+                      className="flex items-center space-x-3 text-[var(--primary)] hover:opacity-90 transition-all duration-300"
                       whileHover={{ x: 10 }}
                     >
                       <Mail className="w-5 h-5" />
@@ -615,9 +614,19 @@ export default function Landing() {
                     </motion.a>
 
                     <motion.a
+                      href="tel:+917993460466"
+                      className="flex items-center space-x-3 text-[var(--primary)] hover:opacity-90 transition-all duration-300"
+                      whileHover={{ x: 10 }}
+                    >
+                      <Phone className="w-5 h-5" />
+                      <span className="font-mono">+91 7993460466</span>
+                    </motion.a>
+
+                    <motion.a
                       href="https://github.com"
                       target="_blank"
-                      className="flex items-center space-x-3 text-pink-400 hover:neon-pink transition-all duration-300"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-3 text-[var(--primary)] hover:opacity-90 transition-all duration-300"
                       whileHover={{ x: 10 }}
                     >
                       <Github className="w-5 h-5" />
@@ -627,7 +636,8 @@ export default function Landing() {
                     <motion.a
                       href="https://linkedin.com"
                       target="_blank"
-                      className="flex items-center space-x-3 text-green-400 hover:neon-green transition-all duration-300"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-3 text-[var(--primary)] hover:opacity-90 transition-all duration-300"
                       whileHover={{ x: 10 }}
                     >
                       <Linkedin className="w-5 h-5" />
@@ -647,10 +657,35 @@ export default function Landing() {
                 <motion.div
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
                   viewport={{ once: true }}
+                  className="space-y-4"
                 >
-                  <ContactForm />
+                  <div className="neon-border-cyan p-5">
+                    <h4 className="text-lg font-bold mb-2 neon-cyan">Why Hire Me</h4>
+                    <ul className="list-disc list-inside text-gray-300 font-mono space-y-2">
+                      <li>React + TypeScript expert with performance-first mindset</li>
+                      <li>Clean, scalable UI architecture and reusable component systems</li>
+                      <li>Strong REST integrations and CI/CD delivery discipline</li>
+                    </ul>
+                  </div>
+
+                  <div className="neon-border-cyan p-5">
+                    <h4 className="text-lg font-bold mb-2 neon-cyan">Availability</h4>
+                    <p className="text-gray-300 font-mono">
+                      Open to freelance and full-time opportunities. Let's discuss scope, timelines, and outcomes.
+                    </p>
+                  </div>
+
+                  <div className="pt-2">
+                    <CyberButton
+                      variant="cyan"
+                      size="md"
+                      href="mailto:kshashank2019@gmail.com"
+                    >
+                      CONTACT VIA EMAIL
+                    </CyberButton>
+                  </div>
                 </motion.div>
               </div>
             </div>
