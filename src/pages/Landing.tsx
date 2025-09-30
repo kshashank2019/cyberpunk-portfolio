@@ -188,16 +188,17 @@ export default function Landing() {
   }) {
     return (
       <motion.div
-        style={{ zIndex: index + 1, willChange: "transform, opacity" }}
+        style={{ zIndex: index + 1, willChange: "transform, opacity", filter: "none" }}
         className="sticky top-20 will-change-transform neon-border-cyan bg-black p-5 md:p-6 noise"
-        initial={{ opacity: 0, y: 50, scale: 0.985 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        initial={{ opacity: 0, y: 50, scale: 0.985, filter: "blur(1px)" }}
+        whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
         viewport={{ once: false, amount: 0.7 }}
         transition={{
           type: "spring",
           stiffness: 140,
           damping: 22,
           mass: 0.6,
+          filter: { duration: 0.5, ease: "easeOut" },
         }}
       >
         <div className="flex items-center gap-3 mb-2">
