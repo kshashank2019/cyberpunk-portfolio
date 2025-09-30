@@ -103,6 +103,13 @@ export default function Landing() {
       image: "https://images.unsplash.com/photo-1522199710521-72d69614c702?w=600&h=400&fit=crop",
       demoUrl: "/",
       technologies: ["React", "TypeScript", "Tailwind", "Shadcn UI", "Framer Motion", "AWS"]
+    },
+    {
+      title: "CNN (Warner Bros Discovery) – Platform Contributions",
+      description: "Contributed small UI improvements and performance tweaks to cnn.com via my role at Cognizant. Focused on incremental front-end refinements within established patterns and reviews.",
+      image: "https://images.unsplash.com/photo-1526378722484-bd91ca387e72?w=600&h=400&fit=crop",
+      demoUrl: "https://www.cnn.com/",
+      technologies: ["React", "TypeScript", "Performance", "Accessibility", "CI/CD"]
     }
   ];
 
